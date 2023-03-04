@@ -3,6 +3,7 @@
 const {
   rule: { messages, ruleName },
 } = require("./index.js");
+const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
 
 // eslint-disable-next-line no-undef
 testRule({
@@ -24,7 +25,10 @@ testRule({
     {
       code: "h1 { margin-top: 1rem; };",
       description: "Using a physical margin property",
-      message: messages.unexpectedProp("margin-top", "margin-block-start"),
+      message: messages.unexpectedProp(
+        "margin-top",
+        physicalPropertiesMap["margin-top"]
+      ),
     },
     {
       code: "h1 { text-align: left; };",

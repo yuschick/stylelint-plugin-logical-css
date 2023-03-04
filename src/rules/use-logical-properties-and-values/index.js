@@ -8,6 +8,7 @@ const stylelint = require("stylelint");
 const { ruleName, ruleMessages, ruleMeta } = require("./base");
 const { isPhysicalProperty } = require("../../utils/isPhysicalProperty");
 const { isPhysicalValue } = require("../../utils/isPhysicalValue");
+const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
 
 /** @type {import('stylelint').Rule} */
 const ruleFunction = () => {
@@ -25,7 +26,10 @@ const ruleFunction = () => {
       if (!propIsPhysical && !valueIsPhysical) return;
 
       const message = propIsPhysical
-        ? ruleMessages.unexpectedProp(decl.prop, "margin-block-start")
+        ? ruleMessages.unexpectedProp(
+            decl.prop,
+            physicalPropertiesMap[decl.prop]
+          )
         : ruleMessages.unexpectedValue(decl.prop, decl.value, "start");
 
       stylelint.utils.report({
