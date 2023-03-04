@@ -19,7 +19,7 @@ const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
 });
 
 const ruleMeta = {
-  url: "",
+  url: "https://github.com/yuschick/stylelint-plugin-logical-css",
 };
 
 /** @type {import('stylelint').Rule} */
