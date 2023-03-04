@@ -4,23 +4,10 @@
 // @todo move to typescript
 
 const stylelint = require("stylelint");
+
+const { ruleName, ruleMessages, ruleMeta } = require("./base");
 const { isPhysicalProperty } = require("../../utils/isPhysicalProperty");
 const { isPhysicalValue } = require("../../utils/isPhysicalValue");
-
-const ruleName = "plugin/use-logical-properties-and-values";
-
-const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
-  unexpectedProp(physicalProperty, logicalProperty) {
-    return `Unexpected "${physicalProperty}" property. Use "${logicalProperty}".`;
-  },
-  unexpectedValue(property, physicalValue, logicalValue) {
-    return `Unexpected "${physicalValue}" value in "${property}" property. Use "${logicalValue}".`;
-  },
-});
-
-const ruleMeta = {
-  url: "https://github.com/yuschick/stylelint-plugin-logical-css",
-};
 
 /** @type {import('stylelint').Rule} */
 const ruleFunction = () => {
