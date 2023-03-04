@@ -1,0 +1,1 @@
+# stylelint-plugin-logical-css
