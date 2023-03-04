@@ -1,3 +1,8 @@
+const physicalAxis = Object.freeze({
+  x: "x",
+  y: "y",
+});
+
 const physicalProperties = Object.freeze({
   borderBottom: "border-bottom",
   borderBottomColor: "border-bottom-color",
@@ -20,6 +25,9 @@ const physicalProperties = Object.freeze({
   borderTopStyle: "border-top-style",
   borderTopWidth: "border-top-width",
   bottom: "bottom",
+  captionSide: "caption-size",
+  clear: "clear",
+  float: "float",
   height: "height",
   left: "left",
   marginBottom: "margin-bottom",
@@ -38,11 +46,22 @@ const physicalProperties = Object.freeze({
   paddingLeft: "padding-left",
   paddingRight: "padding-right",
   paddingTop: "padding-top",
+  resize: "resize",
   right: "right",
+  textAlign: "text-align",
   top: "top",
   width: "width",
 });
 
+const physicalValues = Object.freeze({
+  bottom: "bottom",
+  left: "left",
+  right: "right",
+  top: "top",
+});
+
 module.exports = {
+  physicalAxis,
   physicalProperties,
+  physicalValues,
 };

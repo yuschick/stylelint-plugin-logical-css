@@ -1,3 +1,13 @@
+const logicalAxis = Object.freeze({
+  block: "block",
+  inline: "inline",
+});
+
+const logicalInlinePoints = Object.freeze({
+  end: "end",
+  start: "start",
+});
+
 const logicalProperties = Object.freeze({
   blockSize: "block-size",
   borderBlock: "border-block",
@@ -61,6 +71,16 @@ const logicalProperties = Object.freeze({
   paddingInlineStart: "padding-inline-start",
 });
 
+const logicalValues = Object.freeze({
+  blockEnd: "block-end",
+  blockStart: "block-start",
+  inlineEnd: "inline-end",
+  inlineStart: "inline-start",
+});
+
 module.exports = {
+  logicalAxis,
+  logicalInlinePoints,
   logicalProperties,
+  logicalValues,
 };

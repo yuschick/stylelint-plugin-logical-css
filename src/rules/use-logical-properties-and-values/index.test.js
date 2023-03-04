@@ -4,6 +4,7 @@ const {
   rule: { messages, ruleName },
 } = require("./index.js");
 const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
+const { physicalValuesMap } = require("../../utils/physicalValuesMap");
 
 // eslint-disable-next-line no-undef
 testRule({
@@ -33,7 +34,11 @@ testRule({
     {
       code: "h1 { text-align: left; };",
       description: "Using a physical text-align value",
-      message: messages.unexpectedValue("text-align", "left", "start"),
+      message: messages.unexpectedValue(
+        "text-align",
+        "left",
+        physicalValuesMap["text-align"]["left"]
+      ),
     },
   ],
 });

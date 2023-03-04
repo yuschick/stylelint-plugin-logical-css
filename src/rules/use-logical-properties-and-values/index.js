@@ -9,6 +9,7 @@ const { ruleName, ruleMessages, ruleMeta } = require("./base");
 const { isPhysicalProperty } = require("../../utils/isPhysicalProperty");
 const { isPhysicalValue } = require("../../utils/isPhysicalValue");
 const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
+const { physicalValuesMap } = require("../../utils/physicalValuesMap");
 
 /** @type {import('stylelint').Rule} */
 const ruleFunction = () => {
@@ -30,7 +31,11 @@ const ruleFunction = () => {
             decl.prop,
             physicalPropertiesMap[decl.prop]
           )
-        : ruleMessages.unexpectedValue(decl.prop, decl.value, "start");
+        : ruleMessages.unexpectedValue(
+            decl.prop,
+            decl.value,
+            physicalValuesMap[decl.prop][decl.value]
+          );
 
       stylelint.utils.report({
         message,

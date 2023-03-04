@@ -1,14 +1,16 @@
-function isPhysicalProperty (property) {
-  const physicalDirections = ['bottom', 'left', 'right', 'top']
-  const physicalAxes = ['x', 'y']
+const { physicalAxis, physicalValues } = require("./physical");
+
+function isPhysicalProperty(property) {
+  const physicalDirections = Object.values(physicalValues);
+  const physicalAxes = Object.values(physicalAxis);
 
   const propIsPhysical =
-    physicalDirections.some(direction => property.includes(direction)) ||
-    physicalAxes.some(direction => property.includes(`-${direction}`))
+    physicalDirections.some((direction) => property.includes(direction)) ||
+    physicalAxes.some((direction) => property.includes(`-${direction}`));
 
-  return propIsPhysical
+  return propIsPhysical;
 }
 
 module.exports = {
-  isPhysicalProperty
-}
+  isPhysicalProperty,
+};
