@@ -25,7 +25,7 @@ const physicalProperties = Object.freeze({
   borderTopStyle: "border-top-style",
   borderTopWidth: "border-top-width",
   bottom: "bottom",
-  captionSide: "caption-size",
+  captionSide: "caption-side",
   clear: "clear",
   float: "float",
   height: "height",

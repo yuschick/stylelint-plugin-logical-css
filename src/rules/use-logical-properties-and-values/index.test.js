@@ -3,8 +3,6 @@
 const {
   rule: { messages, ruleName },
 } = require("./index.js");
-const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
-const { physicalValuesMap } = require("../../utils/physicalValuesMap");
 
 // eslint-disable-next-line no-undef
 testRule({
@@ -12,33 +10,41 @@ testRule({
   config: [true],
   plugins: ["./index.js"],
   accept: [
+    // PROPERTIES
     {
       code: "h1 { margin-block-start: 1rem; };",
       description: "Using a logical margin property",
     },
+
+    // VALUES
     {
       code: "h1 { text-align: start; };",
       description: "Using a logical text-align value",
     },
+    {
+      code: "table { caption-side: block-start; };",
+      description: "Using a logical caption-side value",
+    },
   ],
 
   reject: [
+    // PROPERTIES
     {
       code: "h1 { margin-top: 1rem; };",
       description: "Using a physical margin property",
-      message: messages.unexpectedProp(
-        "margin-top",
-        physicalPropertiesMap["margin-top"]
-      ),
+      message: messages.unexpectedProp("margin-top", "margin-block-start"),
+    },
+
+    // VALUEs
+    {
+      code: "table { caption-side: right; };",
+      description: "Using a physical caption-side value",
+      message: messages.unexpectedValue("caption-side", "right", "inline-end"),
     },
     {
       code: "h1 { text-align: left; };",
       description: "Using a physical text-align value",
-      message: messages.unexpectedValue(
-        "text-align",
-        "left",
-        physicalValuesMap["text-align"]["left"]
-      ),
+      message: messages.unexpectedValue("text-align", "left", "start"),
     },
   ],
 });
