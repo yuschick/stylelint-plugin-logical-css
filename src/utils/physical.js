@@ -29,6 +29,8 @@ const physicalProperties = Object.freeze({
   bottom: 'bottom',
   captionSide: 'caption-side',
   clear: 'clear',
+  containIntrinsicHeight: 'contain-intrinsic-height',
+  containIntrinsicWidth: 'contain-intrinsic-width',
   float: 'float',
   height: 'height',
   left: 'left',
