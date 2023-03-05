@@ -8,8 +8,8 @@
     "!**/**/*.test.js"
   ],
   "scripts": {
-    "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,8 @@
     "jest-preset-stylelint": "^6.1.0",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
+    "prettier-eslint": "^15.0.1",
     "stylelint": "^15.2.0"
-  }
+  },
+  "dependencies": {}
 }
