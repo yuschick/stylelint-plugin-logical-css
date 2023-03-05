@@ -1,8 +1,5 @@
 "use strict";
 
-// @todo add rule for enforcing logical viewport units
-// @todo move to typescript
-
 const stylelint = require("stylelint");
 
 const { ruleName, ruleMessages, ruleMeta } = require("./base");

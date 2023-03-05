@@ -55,6 +55,17 @@ const physicalProperties = Object.freeze({
   width: "width",
 });
 
+const physicalUnits = Object.freeze({
+  dvh: "dvh",
+  dvw: "dvw",
+  lvh: "lvh",
+  lvw: "lvw",
+  svh: "svh",
+  svw: "svw",
+  vh: "vh",
+  vw: "vw",
+});
+
 const physicalValues = Object.freeze({
   bottom: "bottom",
   left: "left",
@@ -65,5 +76,6 @@ const physicalValues = Object.freeze({
 module.exports = {
   physicalAxis,
   physicalProperties,
+  physicalUnits,
   physicalValues,
 };

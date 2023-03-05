@@ -71,6 +71,17 @@ const logicalProperties = Object.freeze({
   paddingInlineStart: "padding-inline-start",
 });
 
+const logicalUnits = Object.freeze({
+  dvb: "dvb",
+  dvi: "dvi",
+  lvb: "lvb",
+  lvi: "lvi",
+  svb: "svb",
+  svi: "svi",
+  vb: "vb",
+  vi: "vi",
+});
+
 const logicalValues = Object.freeze({
   blockEnd: "block-end",
   blockStart: "block-start",
@@ -82,5 +93,6 @@ module.exports = {
   logicalAxis,
   logicalInlinePoints,
   logicalProperties,
+  logicalUnits,
   logicalValues,
 };
