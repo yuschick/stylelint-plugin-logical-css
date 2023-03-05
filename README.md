@@ -2,6 +2,7 @@
 
 ![License](https://img.shields.io/github/license/yuschick/stylelint-plugin-logical-css?style=for-the-badge)
 ![NPM Version](https://img.shields.io/npm/v/stylelint-plugin-logical-css?style=for-the-badge)
+![Main Workflow Status](https://img.shields.io/github/actions/workflow/status/yuschick/stylelint-plugin-logical-css/main.yaml?style=for-the-badge)
 
 Stylelint Plugin Logical CSS aims to enforce the use of logical CSS properties,
 values and units. The plugin provides two rules. But first, let's get set up.
