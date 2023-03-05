@@ -1,4 +1,4 @@
-const { physicalAxis, physicalValues } = require("./physical");
+const { physicalAxis, physicalValues } = require('./physical');
 
 function isPhysicalValue(value) {
   const values = [

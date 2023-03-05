@@ -1,5 +1,5 @@
-const { logicalProperties } = require("./logical");
-const { physicalProperties } = require("./physical");
+const { logicalProperties } = require('./logical');
+const { physicalProperties } = require('./physical');
 
 const physicalPropertiesMap = Object.freeze({
   [physicalProperties.borderBottom]: logicalProperties.borderBlockEnd,

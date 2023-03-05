@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const stylelint = require("stylelint");
+const stylelint = require('stylelint');
 
-const ruleName = "plugin/use-logical-properties-and-values";
+const ruleName = 'plugin/use-logical-properties-and-values';
 
 const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
   unexpectedProp(physicalProperty, logicalProperty) {
@@ -14,7 +14,7 @@ const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
 });
 
 const ruleMeta = {
-  url: "https://github.com/yuschick/stylelint-plugin-logical-css",
+  url: 'https://github.com/yuschick/stylelint-plugin-logical-css',
 };
 
 module.exports = {

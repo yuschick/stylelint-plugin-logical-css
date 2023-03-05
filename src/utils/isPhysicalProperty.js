@@ -1,4 +1,4 @@
-const { physicalPropertiesMap } = require("./physicalPropertiesMap");
+const { physicalPropertiesMap } = require('./physicalPropertiesMap');
 
 function isPhysicalProperty(property) {
   const physicalProperties = Object.keys(physicalPropertiesMap);
