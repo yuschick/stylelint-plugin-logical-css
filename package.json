@@ -46,5 +46,10 @@
     "prettier-eslint": "^15.0.1",
     "stylelint": "^15.2.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

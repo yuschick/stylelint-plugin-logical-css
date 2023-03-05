@@ -8,9 +8,9 @@ const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
   unexpectedProp(physicalProperty, logicalProperty) {
     return `Unexpected "${physicalProperty}" property. Use "${logicalProperty}".`;
   },
-    unexpectedValue(property, physicalValue, logicalValue) {
-      return `Unexpected "${physicalValue}" value in "${property}" property. Use "${logicalValue}".`;
-    },
+      unexpectedValue(property, physicalValue, logicalValue) {
+        return `Unexpected "${physicalValue}" value in "${property}" property. Use "${logicalValue}".`;
+      },
 });
 
 const ruleMeta = {
