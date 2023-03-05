@@ -20,7 +20,7 @@ testRule({
 
     // VALUES
     {
-      code: "table { caption-side: block-start; };",
+      code: "table { display: flex; caption-side: block-start; };",
       description: "Using a logical caption-side value",
     },
     {

@@ -6,7 +6,7 @@ function isPhysicalValue(value) {
     ...Object.values(physicalAxis),
   ];
 
-  const valueIsPhysical = values.some((direction) => value.includes(direction));
+  const valueIsPhysical = values.some((direction) => value === direction);
 
   return valueIsPhysical;
 }
