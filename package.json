@@ -48,7 +48,7 @@
   },
   "dependencies": {},
   "lint-staged": {
-    "src/**/*.{js}": [
+    "/**/*.{js}": [
       "eslint",
       "prettier --write"
     ]
