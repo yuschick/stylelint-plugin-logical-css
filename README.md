@@ -1,4 +1,4 @@
-# Stylelint Plugin Logical CSS
+# 🚀 Stylelint Plugin Logical CSS
 
 ![License](https://img.shields.io/github/license/yuschick/stylelint-plugin-logical-css?style=for-the-badge)
 ![NPM Version](https://img.shields.io/npm/v/stylelint-plugin-logical-css?style=for-the-badge)
