@@ -36,6 +36,8 @@
     "stylelint": "^14.0.0 || ^15.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "eslint": "^8.35.0",
     "husky": "^8.0.0",
     "jest": "^29.4.3",
@@ -46,7 +48,6 @@
     "prettier-eslint": "^15.0.1",
     "stylelint": "^15.2.0"
   },
-  "dependencies": {},
   "lint-staged": {
     "**/*.{js}": [
       "eslint",
