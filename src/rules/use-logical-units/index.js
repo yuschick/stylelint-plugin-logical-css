@@ -6,7 +6,7 @@ const { ruleName, ruleMessages, ruleMeta } = require('./base');
 const { getValueUnit, isPhysicalUnit } = require('../../utils/isPhysicalUnit');
 const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
 
-const ruleFunction = () => {
+const ruleFunction = (_, options, context) => {
   return (root, result) => {
     const validOptions = stylelint.utils.validateOptions(result, ruleName);
 
@@ -24,6 +24,15 @@ const ruleFunction = () => {
         physicalUnit,
         physicalUnitsMap[physicalUnit],
       );
+
+      if (context.fix && options?.['enable-auto-fix']) {
+        decl.value = decl.value.replace(
+          physicalUnit,
+          physicalUnitsMap[physicalUnit],
+        );
+
+        return;
+      }
 
       stylelint.utils.report({
         message,

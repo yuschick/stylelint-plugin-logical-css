@@ -52,7 +52,28 @@ Let's explore each rule to better understand what it does, and does not, allow.
 This rule is responsible for checking both CSS properties and values. When a
 physical property or value is found, it will be flagged.
 
-#### Not Allowed
+#### Options
+
+The `use-logical-properties-and-values` rule accepts the following options:
+
+| Option            | Type    | Default | Description                                                                                   |
+| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------- |
+| `enable-auto-fix` | boolean | false   | Use this flag in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+
+```json
+{
+  "rules": {
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning", "enable-auto-fix": true }
+    ]
+  }
+}
+```
+
+#### Usage
+
+##### Not Allowed
 
 ```css
 .heading {
@@ -61,7 +82,7 @@ physical property or value is found, it will be flagged.
 }
 ```
 
-#### Allowed
+##### Allowed
 
 ```css
 .heading {
@@ -84,7 +105,28 @@ and viewport height respectively will not reflect different writing modes and
 directions. Instead, this rule will enforce the logical equivalents, `vi` and
 `vb`.
 
-#### Not Allowed
+#### Options
+
+The `use-logical-units` rule accepts the following options:
+
+| Option            | Type    | Default | Description                                                                                   |
+| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------- |
+| `enable-auto-fix` | boolean | false   | Use this flag in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+
+```json
+{
+  "rules": {
+    "plugin/use-logical-units": [
+      true,
+      { "severity": "warning", "enable-auto-fix": true }
+    ]
+  }
+}
+```
+
+#### Usage
+
+##### Not Allowed
 
 ```css
 body {
@@ -92,7 +134,7 @@ body {
 }
 ```
 
-#### Allowed
+##### Allowed
 
 ```css
 body {
