@@ -27,11 +27,17 @@ With the plugin installed, the rule(s) can now be added to the project's
 Stylelint configuration.
 
 ```json
-"plugins": ["stylelint-plugin-logical-css"],
+{
+  ...other Stylelint config
+  "plugins": ["stylelint-plugin-logical-css"],
   "rules": {
-    "plugin/use-logical-properties-and-values": [true, {"severity": "warning" }],
-    "plugin/use-logical-units": [true, {"severity": "warning" }]
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning" }
+    ],
+    "plugin/use-logical-units": [true, { "severity": "warning" }]
   }
+}
 ```
 
 ## Rules
