@@ -38,7 +38,8 @@ Let's explore each rule to better understand what it does, and does not, allow.
 
 ### `plugin/use-logical-properties-and-values`
 
-> A full list of physical and logical properties will be added soon.
+> ➟
+> [Learn more about the properties and values supported by this rule](./src/rules/use-logical-properties-and-values)
 
 This rule is responsible for checking both CSS properties and values. When a
 physical property or value is found, it will be flagged.
@@ -62,6 +63,9 @@ physical property or value is found, it will be flagged.
 ```
 
 ### `plugin/use-logical-units`
+
+> ➟
+> [Learn more about the properties and values supported by this rule](./src/rules/use-logical-units)
 
 > Read about current
 > [browser support for logical viewport units](https://caniuse.com/mdn-css_types_length_viewport_percentage_units_dynamic).
