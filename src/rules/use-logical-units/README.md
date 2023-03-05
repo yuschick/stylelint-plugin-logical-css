@@ -6,8 +6,6 @@ and viewport height respectively will not reflect different writing modes and
 directions. Instead, this rule will enforce the logical equivalents, `vi` and
 `vb`.
 
-> [Read more about Logical CSS on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
-
 ## Getting Started
 
 > Before getting started with the plugin, you must first have

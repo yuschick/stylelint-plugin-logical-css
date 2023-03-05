@@ -6,6 +6,8 @@
 Stylelint Plugin Logical CSS aims to enforce the use of logical CSS properties,
 values and units. The plugin provides two rules. But first, let's get set up.
 
+> [Read more about Logical CSS on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
+
 ## Getting Started
 
 > Before getting started with the plugin, you must first have
