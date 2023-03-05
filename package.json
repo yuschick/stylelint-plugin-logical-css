@@ -49,7 +49,7 @@
     "stylelint": "^15.2.0"
   },
   "lint-staged": {
-    "**/*.{js}": [
+    "**/*.{js|md}": [
       "eslint",
       "prettier --write"
     ]
