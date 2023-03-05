@@ -28,7 +28,7 @@ Stylelint configuration.
 
 ```json
 {
-  ...other Stylelint config
+  //...other Stylelint config
   "plugins": ["stylelint-plugin-logical-css"],
   "rules": {
     "plugin/use-logical-properties-and-values": [
