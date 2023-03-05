@@ -8,9 +8,15 @@ const { isPhysicalValue } = require('../../utils/isPhysicalValue');
 const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
 const { physicalValuesMap } = require('../../utils/physicalValuesMap');
 
-const ruleFunction = () => {
+const ruleFunction = (_, options, context) => {
   return (root, result) => {
-    const validOptions = stylelint.utils.validateOptions(result, ruleName);
+    const validOptions = stylelint.utils.validateOptions(result, ruleName, [
+      {
+        action: 'enableAutoFix',
+        possible: [true, false],
+        optional: true,
+      },
+    ]);
 
     if (!validOptions) {
       return;
@@ -32,6 +38,18 @@ const ruleFunction = () => {
             decl.value,
             physicalValuesMap[decl.prop][decl.value],
           );
+
+      if (context.fix && options.enableAutoFix) {
+        if (propIsPhysical) {
+          decl.prop = physicalPropertiesMap[decl.prop];
+        }
+
+        if (valueIsPhysical) {
+          decl.value = physicalValuesMap[decl.value];
+        }
+
+        return;
+      }
 
       stylelint.utils.report({
         message,
