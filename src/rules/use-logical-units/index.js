@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-const stylelint = require("stylelint");
+const stylelint = require('stylelint');
 
-const { ruleName, ruleMessages, ruleMeta } = require("./base");
-const { getValueUnit, isPhysicalUnit } = require("../../utils/isPhysicalUnit");
-const { physicalUnitsMap } = require("../../utils/physicalUnitsMap");
+const { ruleName, ruleMessages, ruleMeta } = require('./base');
+const { getValueUnit, isPhysicalUnit } = require('../../utils/isPhysicalUnit');
+const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
 
 const ruleFunction = () => {
   return (root, result) => {
@@ -22,7 +22,7 @@ const ruleFunction = () => {
       const physicalUnit = getValueUnit(decl.value);
       const message = ruleMessages.unexpectedUnit(
         physicalUnit,
-        physicalUnitsMap[physicalUnit]
+        physicalUnitsMap[physicalUnit],
       );
 
       stylelint.utils.report({

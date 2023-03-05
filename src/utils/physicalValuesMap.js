@@ -2,12 +2,12 @@ const {
   logicalAxis,
   logicalInlinePoints,
   logicalValues,
-} = require("./logical");
+} = require('./logical');
 const {
   physicalAxis,
   physicalProperties,
   physicalValues,
-} = require("./physical");
+} = require('./physical');
 
 const physicalValuesMap = Object.freeze({
   [physicalProperties.captionSide]: {

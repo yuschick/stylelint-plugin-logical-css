@@ -1,4 +1,4 @@
-const { physicalUnits } = require("./physical");
+const { physicalUnits } = require('./physical');
 
 const expression = /(\d+\s?)(dvh|dvw|lvh|lvw|svh|svw|vh|vw|)(\s+|$)/;
 
@@ -8,7 +8,7 @@ function getValueUnit(value) {
   if (!match) return false;
 
   const matchedUnit = match.find((item) =>
-    Object.values(physicalUnits).includes(item)
+    Object.values(physicalUnits).includes(item),
   );
 
   return matchedUnit;

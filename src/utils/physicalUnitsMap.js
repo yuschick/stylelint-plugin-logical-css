@@ -1,5 +1,5 @@
-const { logicalUnits } = require("./logical");
-const { physicalUnits } = require("./physical");
+const { logicalUnits } = require('./logical');
+const { physicalUnits } = require('./physical');
 
 const physicalUnitsMap = Object.freeze({
   [physicalUnits.dvh]: logicalUnits.dvb,

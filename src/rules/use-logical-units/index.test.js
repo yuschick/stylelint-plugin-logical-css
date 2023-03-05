@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 const {
   rule: { messages, ruleName },
-} = require("./index.js");
+} = require('./index.js');
 
-const { logicalUnits } = require("../../utils/logical");
-const { physicalUnitsMap } = require("../../utils/physicalUnitsMap");
-// const { getValueUnit } = require("../../utils/isPhysicalUnit");
+const { logicalUnits } = require('../../utils/logical');
+const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
 
+/* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
   config: [true],
-  plugins: ["./index.js"],
+  plugins: ['./index.js'],
   accept: [
     ...Object.values(logicalUnits).map((unit) => ({
       code: `h1 { block-size: 100${unit}; };`,
