@@ -56,9 +56,9 @@ physical property or value is found, it will be flagged.
 
 The `use-logical-properties-and-values` rule accepts the following options:
 
-| Option            | Type    | Default | Description                                                                                   |
-| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------- |
-| `enable-auto-fix` | boolean | false   | Use this flag in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+| Option            | Description                                                                                     |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `enable-auto-fix` | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
 
 ```json
 {
