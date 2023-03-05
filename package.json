@@ -47,6 +47,11 @@
     "stylelint": "^15.2.0"
   },
   "dependencies": {},
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "npm run prettier:check"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
