@@ -44,10 +44,10 @@ configuration.
 
 Let's explore each rule to better understand what it does, and does not, allow.
 
-### plugin/use-logical-properties-and-values
+### `plugin/use-logical-properties-and-values`
 
-👉
-[Learn more about the properties and values supported by this rule](./src/rules/use-logical-properties-and-values)
+**👉
+[Learn more about the properties and values supported by this rule](./src/rules/use-logical-properties-and-values)**
 
 This rule is responsible for checking both CSS properties and values. When a
 physical property or value is found, it will be flagged.
@@ -91,13 +91,10 @@ The use-logical-properties-and-values rule accepts the following options:
 }
 ```
 
-### plugin/use-logical-units
+### `plugin/use-logical-units`
 
-> Read about current
-> [browser support for logical viewport units](https://caniuse.com/mdn-css_types_length_viewport_percentage_units_dynamic).
-
-👉
-[Learn more about the properties and values supported by this rule](./src/rules/use-logical-units)
+**👉
+[Learn more about the properties and values supported by this rule](./src/rules/use-logical-units)**
 
 This rule is responsible for checking that logical CSS units are used.
 Specifically, viewport units like `vw` and `vh` which stand for viewport width

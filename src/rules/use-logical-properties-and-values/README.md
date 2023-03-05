@@ -32,9 +32,9 @@ Stylelint configuration.
 
 The `use-logical-properties-and-values` rule accepts the following options:
 
-| Option            | Description                                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------------------- |
-| `enable-auto-fix` | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+| Option          | Description                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| enable-auto-fix | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
 
 ```json
 {
