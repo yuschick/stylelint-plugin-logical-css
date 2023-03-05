@@ -28,6 +28,25 @@ Stylelint configuration.
   }
 ```
 
+## Options
+
+The `use-logical-properties-and-values` rule accepts the following options:
+
+| Option            | Type    | Default | Description                                                                                   |
+| ----------------- | ------- | ------- | --------------------------------------------------------------------------------------------- |
+| `enable-auto-fix` | boolean | false   | Use this flag in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+
+```json
+{
+  "rules": {
+    "plugin/use-logical-properties-and-values": [
+      true,
+      { "severity": "warning", "enable-auto-fix": true }
+    ]
+  }
+}
+```
+
 ## Usage
 
 ### Not Allowed
