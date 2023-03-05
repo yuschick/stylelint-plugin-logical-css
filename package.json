@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A Stylelint plugin to enforce the use of logical CSS properties, values and units.",
   "main": "index.js",
+  "files": [
+    "src/**/*.js",
+    "!**/**/*.test.js"
+  ],
   "scripts": {
     "test": "jest"
   },

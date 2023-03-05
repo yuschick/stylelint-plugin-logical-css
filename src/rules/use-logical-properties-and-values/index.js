@@ -8,7 +8,6 @@ const { isPhysicalValue } = require("../../utils/isPhysicalValue");
 const { physicalPropertiesMap } = require("../../utils/physicalPropertiesMap");
 const { physicalValuesMap } = require("../../utils/physicalValuesMap");
 
-/** @type {import('stylelint').Rule} */
 const ruleFunction = () => {
   return (root, result) => {
     const validOptions = stylelint.utils.validateOptions(result, ruleName);

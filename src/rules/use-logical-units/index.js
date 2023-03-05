@@ -6,7 +6,6 @@ const { ruleName, ruleMessages, ruleMeta } = require("./base");
 const { getValueUnit, isPhysicalUnit } = require("../../utils/isPhysicalUnit");
 const { physicalUnitsMap } = require("../../utils/physicalUnitsMap");
 
-/** @type {import('stylelint').Rule} */
 const ruleFunction = () => {
   return (root, result) => {
     const validOptions = stylelint.utils.validateOptions(result, ruleName);
