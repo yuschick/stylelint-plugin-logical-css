@@ -1,4 +1,4 @@
-# Use Logical Units
+# 👽 Use Logical Units
 
 This rule is responsible for checking that logical CSS units are used.
 Specifically, viewport units like `vw` and `vh` which stand for viewport width

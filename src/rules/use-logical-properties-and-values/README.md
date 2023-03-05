@@ -1,4 +1,4 @@
-# Use Logical Properties and Values
+# 👽 Use Logical Properties and Values
 
 This rule is responsible for checking both CSS properties and values. When a
 physical property or value is found, it will be flagged.
