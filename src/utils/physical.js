@@ -1,4 +1,6 @@
 const physicalAxis = Object.freeze({
+  horizontal: "horizontal",
+  vertical: "vertical",
   x: "x",
   y: "y",
 });

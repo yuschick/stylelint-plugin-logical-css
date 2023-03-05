@@ -1,12 +1,16 @@
-function isPhysicalValue (value) {
-  const physicalDirections = ['bottom', 'left', 'right', 'top']
+const { physicalAxis, physicalValues } = require("./physical");
 
-  const valueIsPhysical =
-        physicalDirections.some(direction => value.includes(direction))
+function isPhysicalValue(value) {
+  const values = [
+    ...Object.values(physicalValues),
+    ...Object.values(physicalAxis),
+  ];
 
-  return valueIsPhysical
+  const valueIsPhysical = values.some((direction) => value.includes(direction));
+
+  return valueIsPhysical;
 }
 
 module.exports = {
-  isPhysicalValue
-}
+  isPhysicalValue,
+};

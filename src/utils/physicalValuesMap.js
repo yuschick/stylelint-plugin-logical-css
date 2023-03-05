@@ -25,8 +25,8 @@ const physicalValuesMap = Object.freeze({
     [physicalValues.right]: logicalValues.inlineEnd,
   },
   [physicalProperties.resize]: {
-    [physicalAxis.x]: logicalAxis.inline,
-    [physicalValues.y]: logicalAxis.block,
+    [physicalAxis.horizontal]: logicalAxis.inline,
+    [physicalAxis.vertical]: logicalAxis.block,
   },
   [physicalProperties.textAlign]: {
     [physicalValues.left]: logicalInlinePoints.start,

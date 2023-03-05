@@ -40,8 +40,8 @@ const physicalPropertiesMap = Object.freeze({
   [physicalProperties.maxWidth]: logicalProperties.maxInlineSize,
   [physicalProperties.minHeight]: logicalProperties.minBlockSize,
   [physicalProperties.minWidth]: logicalProperties.minInlineSize,
-  [physicalProperties.overflowX]: logicalProperties.overflowBlock,
-  [physicalProperties.overflowY]: logicalProperties.overflowInline,
+  [physicalProperties.overflowX]: logicalProperties.overflowInline,
+  [physicalProperties.overflowY]: logicalProperties.overflowBlock,
   [physicalProperties.overscrollBehaviorX]:
     logicalProperties.overscrollBehaviorInline,
   [physicalProperties.overscrollBehaviorY]:

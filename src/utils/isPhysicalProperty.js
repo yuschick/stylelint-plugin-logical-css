@@ -1,12 +1,9 @@
-const { physicalAxis, physicalValues } = require("./physical");
+const { physicalPropertiesMap } = require("./physicalPropertiesMap");
 
 function isPhysicalProperty(property) {
-  const physicalDirections = Object.values(physicalValues);
-  const physicalAxes = Object.values(physicalAxis);
+  const physicalProperties = Object.keys(physicalPropertiesMap);
 
-  const propIsPhysical =
-    physicalDirections.some((direction) => property.includes(direction)) ||
-    physicalAxes.some((direction) => property.includes(`-${direction}`));
+  const propIsPhysical = physicalProperties.includes(property);
 
   return propIsPhysical;
 }
