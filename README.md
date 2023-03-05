@@ -91,6 +91,8 @@ The use-logical-properties-and-values rule accepts the following options:
 }
 ```
 
+---
+
 ### `plugin/use-logical-units`
 
 **👉
