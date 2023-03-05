@@ -30,6 +30,10 @@ const physicalPropertiesMap = Object.freeze({
   [physicalProperties.borderTopStyle]: logicalProperties.borderBlockStartStyle,
   [physicalProperties.borderTopWidth]: logicalProperties.borderBlockStartWidth,
   [physicalProperties.bottom]: logicalProperties.insetBlockEnd,
+  [physicalProperties.containIntrinsicHeight]:
+    logicalProperties.containIntrinsicBlockSize,
+  [physicalProperties.containIntrinsicWidth]:
+    logicalProperties.containIntrinsicInlineSize,
   [physicalProperties.height]: logicalProperties.blockSize,
   [physicalProperties.left]: logicalProperties.insetInlineStart,
   [physicalProperties.marginBottom]: logicalProperties.marginBlockEnd,

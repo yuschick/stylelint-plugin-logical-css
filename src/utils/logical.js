@@ -41,6 +41,8 @@ const logicalProperties = Object.freeze({
   borderStartStartRadius: 'border-start-start-radius',
   borderStyle: 'border-style',
   borderWidth: 'border-width',
+  containIntrinsicBlockSize: 'contain-intrinsic-block-size',
+  containIntrinsicInlineSize: 'contain-intrinsic-inline-size',
   inlineSize: 'inline-size',
   inset: 'inset',
   insetBlock: 'inset-block',
