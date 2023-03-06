@@ -19,30 +19,35 @@ testRule({
       description: `Using the ${property} property`,
     })),
 
+    {
+      code: 'div { -webkit-box-orient: block-axis; };',
+      description: 'Testing to -webkit-box-orient property',
+    },
+
     // PROPERTIES TO SKIP
     {
       code: 'div { background: url() top left no-repeat; };',
-      description: 'Testing to background prop to skip',
+      description: 'Testing to background property to skip',
     },
     {
       code: 'div { background-position: bottom; };',
-      description: 'Testing to background-position prop to skip',
+      description: 'Testing to background-position property to skip',
     },
     {
       code: 'div { grid-area: bottom; };',
-      description: 'Testing to grid-area prop to skip',
+      description: 'Testing to grid-area property to skip',
     },
     {
       code: 'div { grid-template-areas: left right; };',
-      description: 'Testing to grid-template-areas prop to skip',
+      description: 'Testing to grid-template-areas property to skip',
     },
     {
       code: 'button { transform-origin: left; };',
-      description: 'Testing to transform-origin prop to skip',
+      description: 'Testing to transform-origin property to skip',
     },
     {
       code: 'button { vertical-align: bottom; };',
-      description: 'Testing to vertical-align prop to skip',
+      description: 'Testing to vertical-align property to skip',
     },
 
     // VALUES
@@ -108,6 +113,24 @@ testRule({
     })),
 
     // VALUEs
+    {
+      code: 'p { -webkit-box-orient: vertical; };',
+      description: 'Using a physical -webkit-box-orient value',
+      message: messages.unexpectedValue(
+        '-webkit-box-orient',
+        'vertical',
+        'block-axis',
+      ),
+    },
+    {
+      code: 'p { -webkit-box-orient: horizontal; };',
+      description: 'Using a physical -webkit-box-orient value',
+      message: messages.unexpectedValue(
+        '-webkit-box-orient',
+        'horizontal',
+        'inline-axis',
+      ),
+    },
     {
       code: 'table { caption-side: bottom; };',
       description: 'Using a physical caption-side value',

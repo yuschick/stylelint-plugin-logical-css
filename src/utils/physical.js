@@ -6,6 +6,7 @@ const physicalAxis = Object.freeze({
 });
 
 const physicalProperties = Object.freeze({
+  webkitBoxOrient: '-webkit-box-orient',
   borderBottom: 'border-bottom',
   borderBottomColor: 'border-bottom-color',
   borderBottomLeftRadius: 'border-bottom-left-radius',
