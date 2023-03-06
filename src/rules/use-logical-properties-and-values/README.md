@@ -149,17 +149,19 @@ The `use-logical-properties-and-values` rule accepts the following options:
 
 ### Other properties
 
-| Physical Property       |  Logical Property            |
-| ----------------------- | ---------------------------- |
-| `caption-size: top`     | `caption-side: block-start`  |
-| `caption-size: bottom`  | `caption-side: block-end`    |
-| `caption-size: right`   | `caption-side: inline-end`   |
-| `caption-size: left`    | `caption-side: inline-start` |
-| `overflow-y`            | `overflow-block`             |
-| `overflow-x`            | `overflow-inline`            |
-| `overscroll-behavior-x` | `overscroll-behavior-inline` |
-| `overscroll-behavior-y` | `overscroll-behavior-block`  |
-| `resize: horizontal`    | `resize: inline`             |
-| `resize: vertical`      | `resize: block`              |
-| `text-align: left`      | `text-align: start`          |
-| `text-align: right`     | `text-align: end`            |
+| Physical Property                  |  Logical Property                   |
+| ---------------------------------- | ----------------------------------- |
+| `(-webkit-)box-orient: vertical`   | `(-webkit-)box-orient: block-axis`  |
+| `(-webkit-)box-orient: horizontal` | `(-webkit-)box-orient: inline-axis` |
+| `caption-size: top`                | `caption-side: block-start`         |
+| `caption-size: bottom`             | `caption-side: block-end`           |
+| `caption-size: right`              | `caption-side: inline-end`          |
+| `caption-size: left`               | `caption-side: inline-start`        |
+| `overflow-y`                       | `overflow-block`                    |
+| `overflow-x`                       | `overflow-inline`                   |
+| `overscroll-behavior-x`            | `overscroll-behavior-inline`        |
+| `overscroll-behavior-y`            | `overscroll-behavior-block`         |
+| `resize: horizontal`               | `resize: inline`                    |
+| `resize: vertical`                 | `resize: block`                     |
+| `text-align: left`                 | `text-align: start`                 |
+| `text-align: right`                | `text-align: end`                   |
