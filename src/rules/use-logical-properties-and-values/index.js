@@ -7,6 +7,7 @@ const { isPhysicalProperty } = require('../../utils/isPhysicalProperty');
 const { isPhysicalValue } = require('../../utils/isPhysicalValue');
 const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
 const { physicalValuesMap } = require('../../utils/physicalValuesMap');
+const { propsToSkip } = require('../../utils/propsToSkip');
 
 const ruleFunction = (_, options, context) => {
   return (root, result) => {
@@ -17,9 +18,14 @@ const ruleFunction = (_, options, context) => {
     }
 
     root.walkDecls((decl) => {
+      if (propsToSkip.includes(decl.prop)) return;
+
       const propIsPhysical = isPhysicalProperty(decl.prop);
       const valueIsPhysical = isPhysicalValue(decl.value);
 
+      if (decl.prop.includes('grid')) {
+        console.log({ decl, propIsPhysical, valueIsPhysical });
+      }
       if (!propIsPhysical && !valueIsPhysical) return;
 
       const message = propIsPhysical

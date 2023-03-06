@@ -19,6 +19,32 @@ testRule({
       description: `Using the ${property} property`,
     })),
 
+    // PROPERTIES TO SKIP
+    {
+      code: 'div { background: url() top left no-repeat; };',
+      description: 'Testing to background prop to skip',
+    },
+    {
+      code: 'div { background-position: bottom; };',
+      description: 'Testing to background-position prop to skip',
+    },
+    {
+      code: 'div { grid-area: bottom; };',
+      description: 'Testing to grid-area prop to skip',
+    },
+    {
+      code: 'div { grid-areas: left right; };',
+      description: 'Testing to grid-areas prop to skip',
+    },
+    {
+      code: 'button { transform-origin: left; };',
+      description: 'Testing to transform-origin prop to skip',
+    },
+    {
+      code: 'button { vertical-align: bottom; };',
+      description: 'Testing to vertical-align prop to skip',
+    },
+
     // VALUES
     {
       code: 'table { display: flex; caption-side: block-start; };',
