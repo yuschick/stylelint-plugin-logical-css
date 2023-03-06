@@ -18,7 +18,9 @@ const ruleFunction = (_, options, context) => {
     }
 
     root.walkDecls((decl) => {
-      if (propsToSkip.includes(decl.prop)) return;
+      const canSkipProp = propsToSkip.some((prop) => decl.prop.includes(prop));
+
+      if (canSkipProp) return;
 
       const propIsPhysical = isPhysicalProperty(decl.prop);
       const valueIsPhysical = isPhysicalValue(decl.value);

@@ -23,6 +23,10 @@ testRule({
       code: 'div { -webkit-box-orient: block-axis; };',
       description: 'Testing to -webkit-box-orient property',
     },
+    {
+      code: 'div { box-orient: block-axis; };',
+      description: 'Testing to -webkit-box-orient property',
+    },
 
     // PROPERTIES TO SKIP
     {
@@ -143,6 +147,20 @@ testRule({
       description: 'Using a physical -webkit-box-orient value',
       message: messages.unexpectedValue(
         '-webkit-box-orient',
+        'horizontal',
+        'inline-axis',
+      ),
+    },
+    {
+      code: 'p { box-orient: vertical; };',
+      description: 'Using a physical box-orient value',
+      message: messages.unexpectedValue('box-orient', 'vertical', 'block-axis'),
+    },
+    {
+      code: 'p { box-orient: horizontal; };',
+      description: 'Using a physical box-orient value',
+      message: messages.unexpectedValue(
+        'box-orient',
         'horizontal',
         'inline-axis',
       ),

@@ -14,6 +14,10 @@ const physicalValuesMap = Object.freeze({
     [physicalAxis.horizontal]: `${logicalAxis.inline}-axis`,
     [physicalAxis.vertical]: `${logicalAxis.block}-axis`,
   },
+  [physicalProperties.boxOrient]: {
+    [physicalAxis.horizontal]: `${logicalAxis.inline}-axis`,
+    [physicalAxis.vertical]: `${logicalAxis.block}-axis`,
+  },
   [physicalProperties.captionSide]: {
     [physicalValues.bottom]: logicalValues.blockEnd,
     [physicalValues.left]: logicalValues.inlineStart,

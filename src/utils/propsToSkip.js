@@ -6,11 +6,8 @@
 const propsToSkip = [
   'background',
   'background-position',
-  'background-position-x',
-  'background-position-y',
   'grid-area',
   'grid-template-areas',
-  '-webkit-mask-position',
   'mask-position',
   'transform-origin',
   'vertical-align',
