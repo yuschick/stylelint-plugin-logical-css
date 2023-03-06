@@ -42,6 +42,14 @@ testRule({
       description: 'Testing to grid-template-areas property to skip',
     },
     {
+      code: 'div { -webkit-mask-position: top right; };',
+      description: 'Testing to -webkit-mask-position property to skip',
+    },
+    {
+      code: 'div { mask-position: top right; };',
+      description: 'Testing to mask-position property to skip',
+    },
+    {
       code: 'button { transform-origin: left; };',
       description: 'Testing to transform-origin property to skip',
     },
