@@ -7,7 +7,7 @@ const propsToSkip = [
   'background',
   'background-position',
   'grid-area',
-  'grid-areas',
+  'grid-template-areas',
   'transform-origin',
   'vertical-align',
 ];

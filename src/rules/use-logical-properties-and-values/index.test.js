@@ -33,8 +33,8 @@ testRule({
       description: 'Testing to grid-area prop to skip',
     },
     {
-      code: 'div { grid-areas: left right; };',
-      description: 'Testing to grid-areas prop to skip',
+      code: 'div { grid-template-areas: left right; };',
+      description: 'Testing to grid-template-areas prop to skip',
     },
     {
       code: 'button { transform-origin: left; };',
