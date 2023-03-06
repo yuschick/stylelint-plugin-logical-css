@@ -34,6 +34,14 @@ testRule({
       description: 'Testing to background-position property to skip',
     },
     {
+      code: 'div { background-position-x: right; };',
+      description: 'Testing to background-position-x property to skip',
+    },
+    {
+      code: 'div { background-position-y: bottom; };',
+      description: 'Testing to background-position-y property to skip',
+    },
+    {
       code: 'div { grid-area: bottom; };',
       description: 'Testing to grid-area property to skip',
     },
