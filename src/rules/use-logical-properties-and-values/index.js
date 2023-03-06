@@ -23,9 +23,6 @@ const ruleFunction = (_, options, context) => {
       const propIsPhysical = isPhysicalProperty(decl.prop);
       const valueIsPhysical = isPhysicalValue(decl.value);
 
-      if (decl.prop.includes('grid')) {
-        console.log({ decl, propIsPhysical, valueIsPhysical });
-      }
       if (!propIsPhysical && !valueIsPhysical) return;
 
       const message = propIsPhysical
