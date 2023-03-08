@@ -155,3 +155,11 @@ we skip any linting checks.
 | `mask-position`       | The `mask-position` property can accept physical positions, but not logical ones.        |
 | `transform-origin`    | The `transform-origin` property can accept physical positions, but not logical ones.     |
 | `vertical-align`      | The `vertical-align` property can accept physical positions, but not logical ones.       |
+
+
+## TODO
+
+What can be expected in the future.
+
+- Refactor to TypeScript
+- Support disabling individual property checks
