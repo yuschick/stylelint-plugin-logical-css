@@ -10,8 +10,9 @@ const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
 /* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
-  config: [true],
+  config: [true, { 'enable-auto-fix': true }],
   plugins: ['./index.js'],
+  fix: true,
   accept: [
     ...Object.values(logicalUnits).map((unit) => ({
       code: `h1 { block-size: 100${unit}; };`,
@@ -24,6 +25,7 @@ testRule({
       code: `body { block-size: 100${unit}; };`,
       description: `Using the physical ${unit} unit`,
       message: messages.unexpectedUnit(unit, physicalUnitsMap[unit]),
+      fixed: `body { block-size: 100${physicalUnitsMap[unit]}; };`,
     })),
   ],
 });

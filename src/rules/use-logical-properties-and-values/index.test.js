@@ -10,8 +10,9 @@ const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
 /* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
-  config: [true],
+  config: [true, { 'enable-auto-fix': true }],
   plugins: ['./index.js'],
+  fix: true,
   accept: [
     // PROPERTIES
     ...Object.values(logicalProperties).map((property) => ({
@@ -130,6 +131,7 @@ testRule({
         property,
         physicalPropertiesMap[property],
       ),
+      fixed: `body { ${physicalPropertiesMap[property]}: 1rem; };`,
     })),
 
     // VALUEs
@@ -141,6 +143,7 @@ testRule({
         'vertical',
         'block-axis',
       ),
+      fixed: 'p { -webkit-box-orient: block-axis; };',
     },
     {
       code: 'p { -webkit-box-orient: horizontal; };',
@@ -150,6 +153,7 @@ testRule({
         'horizontal',
         'inline-axis',
       ),
+      fixed: 'p { -webkit-box-orient: inline-axis; };',
     },
     {
       code: 'p { -moz-box-orient: horizontal; };',
@@ -159,11 +163,13 @@ testRule({
         'horizontal',
         'inline-axis',
       ),
+      fixed: 'p { -moz-box-orient: inline-axis; };',
     },
     {
       code: 'p { box-orient: vertical; };',
       description: 'Using a physical box-orient value',
       message: messages.unexpectedValue('box-orient', 'vertical', 'block-axis'),
+      fixed: 'p { box-orient: block-axis; };',
     },
     {
       code: 'p { box-orient: horizontal; };',
@@ -173,66 +179,80 @@ testRule({
         'horizontal',
         'inline-axis',
       ),
+      fixed: 'p { box-orient: inline-axis; };',
     },
     {
       code: 'table { caption-side: bottom; };',
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'bottom', 'block-end'),
+      fixed: 'table { caption-side: block-end; };',
     },
     {
       code: 'table { caption-side: left; };',
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'left', 'inline-start'),
+      fixed: 'table { caption-side: inline-start; };',
     },
     {
       code: 'table { caption-side: right; };',
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'right', 'inline-end'),
+      fixed: 'table { caption-side: inline-end; };',
     },
     {
       code: 'table { caption-side: top; };',
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'top', 'block-start'),
+      fixed: 'table { caption-side: block-start; };',
     },
     {
       code: 'div { clear: left; };',
       description: 'Using a physical clear value',
       message: messages.unexpectedValue('clear', 'left', 'inline-start'),
+      fixed: 'div { clear: inline-start; };',
     },
     {
       code: 'div { clear: right; };',
       description: 'Using a physical clear value',
       message: messages.unexpectedValue('clear', 'right', 'inline-end'),
+      fixed: 'div { clear: inline-end; };',
     },
     {
       code: 'div { float: left; };',
       description: 'Using a physical float value',
       message: messages.unexpectedValue('float', 'left', 'inline-start'),
+      fixed: 'div { float: inline-start; };',
     },
     {
       code: 'div { float: right; };',
       description: 'Using a physical float value',
       message: messages.unexpectedValue('float', 'right', 'inline-end'),
+      fixed: 'div { float: inline-end; };',
     },
     {
       code: 'div { resize: horizontal; };',
       description: 'Using a physical resize value',
       message: messages.unexpectedValue('resize', 'horizontal', 'inline'),
+      fixed: 'div { resize: inline; };',
     },
     {
       code: 'div { resize: vertical; };',
       description: 'Using a physical resize value',
       message: messages.unexpectedValue('resize', 'vertical', 'block'),
+      fixed: 'div { resize: block; };',
     },
+
     {
       code: 'h1 { text-align: left; };',
       description: 'Using a physical text-align value',
       message: messages.unexpectedValue('text-align', 'left', 'start'),
+      fixed: 'h1 { text-align: start; };',
     },
     {
       code: 'h1 { text-align: right; };',
       description: 'Using a physical text-align value',
       message: messages.unexpectedValue('text-align', 'right', 'end'),
+      fixed: 'h1 { text-align: end; };',
     },
   ],
 });
