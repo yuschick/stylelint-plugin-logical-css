@@ -3,11 +3,11 @@
 const stylelint = require('stylelint');
 
 const { ruleName, ruleMessages, ruleMeta } = require('./base');
+const { physicalProperties } = require('../../utils/physical');
 const { isPhysicalProperty } = require('../../utils/isPhysicalProperty');
 const { isPhysicalValue } = require('../../utils/isPhysicalValue');
 const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
 const { physicalValuesMap } = require('../../utils/physicalValuesMap');
-const { propsToSkip } = require('../../utils/propsToSkip');
 
 const ruleFunction = (_, options, context) => {
   return (root, result) => {
@@ -18,9 +18,11 @@ const ruleFunction = (_, options, context) => {
     }
 
     root.walkDecls((decl) => {
-      const canSkipProp = propsToSkip.some((prop) => decl.prop.includes(prop));
+      const isValidProp = Object.values(physicalProperties).some((prop) =>
+        decl.prop.includes(prop),
+      );
 
-      if (canSkipProp) return;
+      if (!isValidProp) return;
 
       const propIsPhysical = isPhysicalProperty(decl.prop);
       const valueIsPhysical = isPhysicalValue(decl.value);
