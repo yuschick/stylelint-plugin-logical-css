@@ -10,10 +10,6 @@ const {
 } = require('./physical');
 
 const physicalValuesMap = Object.freeze({
-  [physicalProperties.webkitBoxOrient]: {
-    [physicalAxis.horizontal]: `${logicalAxis.inline}-axis`,
-    [physicalAxis.vertical]: `${logicalAxis.block}-axis`,
-  },
   [physicalProperties.boxOrient]: {
     [physicalAxis.horizontal]: `${logicalAxis.inline}-axis`,
     [physicalAxis.vertical]: `${logicalAxis.block}-axis`,

@@ -140,26 +140,9 @@ body {
 }
 ```
 
-## Skipped Properties
-
-There are some CSS properties which do not yet have logical equivalents or
-support for logical values. In these cases, including vendor-prefixed instances,
-we skip any linting checks.
-
-| Property              | Description                                                                              |
-| --------------------- | ---------------------------------------------------------------------------------------- |
-| `background`          | The shorthand `background` property can contain positioning terms like `top` and `left`. |
-| `background-position` | The `background-position` property can contain positioning terms like `top` and `left`.. |
-| `grid-area`           | It is possible for a grid area to have a name like 'bottom'.                             |
-| `grid-template-areas` | It is possible for a grid area to have a name like 'bottom'.                             |
-| `mask-position`       | The `mask-position` property can accept physical positions, but not logical ones.        |
-| `transform-origin`    | The `transform-origin` property can accept physical positions, but not logical ones.     |
-| `vertical-align`      | The `vertical-align` property can accept physical positions, but not logical ones.       |
-
-
 ## TODO
 
 What can be expected in the future.
 
-- Refactor to TypeScript
-- Support disabling individual property checks
+[] Refactor to TypeScript
+[] Support disabling individual property checks

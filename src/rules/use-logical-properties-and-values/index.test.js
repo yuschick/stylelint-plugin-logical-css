@@ -152,6 +152,15 @@ testRule({
       ),
     },
     {
+      code: 'p { -moz-box-orient: horizontal; };',
+      description: 'Using a physical -moz-box-orient value',
+      message: messages.unexpectedValue(
+        '-moz-box-orient',
+        'horizontal',
+        'inline-axis',
+      ),
+    },
+    {
       code: 'p { box-orient: vertical; };',
       description: 'Using a physical box-orient value',
       message: messages.unexpectedValue('box-orient', 'vertical', 'block-axis'),
