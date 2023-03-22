@@ -144,5 +144,4 @@ body {
 
 What can be expected in the future.
 
-[] Refactor to TypeScript
-[] Support disabling individual property checks
+- Support disabling individual property checks
