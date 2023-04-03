@@ -33,7 +33,7 @@ const ruleFunction = (_, options, context) => {
         physicalUnitsMap[physicalUnit],
       );
 
-      if (context.fix && options?.['enable-auto-fix']) {
+      if (context.fix && !options?.['disable-auto-fix']) {
         decl.value = decl.value.replace(
           physicalUnit,
           physicalUnitsMap[physicalUnit],

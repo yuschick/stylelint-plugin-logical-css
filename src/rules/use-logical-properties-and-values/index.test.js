@@ -10,7 +10,7 @@ const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
 /* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
-  config: [true, { 'enable-auto-fix': true }],
+  config: [true],
   plugins: ['./index.js'],
   fix: true,
   accept: [
