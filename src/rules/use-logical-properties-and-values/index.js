@@ -20,6 +20,16 @@ const ruleFunction = (_, options, context) => {
 
     root.walkDecls((decl) => {
       let rootProp = decl.prop;
+      if (options?.[rootProp] === false || options?.[rootProp] === 'off') {
+        console.log({
+          decl,
+          parent: decl.parent,
+          source: decl.source,
+          parentSource: decl.parent.source,
+        });
+        return;
+      }
+
       vendorPrefixes.forEach(
         (prefix) => (rootProp = rootProp.replace(prefix, '')),
       );
@@ -56,6 +66,9 @@ const ruleFunction = (_, options, context) => {
       }
 
       stylelint.utils.report({
+        column: decl.source.start.column,
+        endColumn: rootProp.length,
+        line: decl.source.start.line,
         message,
         node: decl,
         result,

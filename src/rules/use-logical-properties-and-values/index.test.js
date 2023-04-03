@@ -256,3 +256,31 @@ testRule({
     },
   ],
 });
+
+/* eslint-disable-next-line no-undef  */
+testRule({
+  ruleName,
+  config: [true, { 'overflow-y': false }],
+  plugins: ['./index.js'],
+  accept: [
+    {
+      code: `div {
+  overflow-y: auto;
+};`,
+      description: 'Allow overflow-y when the option is disabled with false.',
+    },
+  ],
+});
+
+/* eslint-disable-next-line no-undef  */
+testRule({
+  ruleName,
+  config: [true, { top: 'off' }],
+  plugins: ['./index.js'],
+  accept: [
+    {
+      code: 'div { top: 1rem; };',
+      description: 'Allow top when the option is disabled off.',
+    },
+  ],
+});
