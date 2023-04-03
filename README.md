@@ -56,9 +56,10 @@ physical property or value is found, it will be flagged.
 
 The use-logical-properties-and-values rule accepts the following options:
 
-| Option          | Description                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| enable-auto-fix | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+| Option          | Value | Description                                                                                     |
+| --------------- | --- | ----------------------------------------------------------------------------------------------- |
+| enable-auto-fix | `true \| false` | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+| [physical property] | `false \| 'off'` | Disable linting a specific physical property, like `overflow-y: false` to disable linting `overflow-y` declaration |
 
 ```json
 {
