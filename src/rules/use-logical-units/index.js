@@ -20,6 +20,14 @@ const ruleFunction = (_, options, context) => {
       if (!unitIsPhysical) return;
 
       const physicalUnit = getValueUnit(decl.value);
+
+      if (
+        options?.[physicalUnit] === false ||
+        options?.[physicalUnit] === 'off'
+      ) {
+        return;
+      }
+
       const message = ruleMessages.unexpectedUnit(
         physicalUnit,
         physicalUnitsMap[physicalUnit],
