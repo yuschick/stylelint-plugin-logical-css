@@ -33,7 +33,7 @@ testRule({
 /* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
-  config: [true, { dvh: false }],
+  config: [true, { ignore: ['dvh'] }],
   plugins: ['./index.js'],
   accept: [
     {
