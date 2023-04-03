@@ -42,6 +42,11 @@ configuration.
 
 ## Rules
 
+- [plugin/use-logical-properties-and-values](#pluginuse-logical-properties-and-values)
+- [plugin/use-logical-units](#pluginuse-logical-units)
+
+---
+
 ### plugin/use-logical-properties-and-values
 
 This rule is responsible for checking both CSS properties and values. When a physical property or value is found, it will be flagged.
