@@ -72,7 +72,7 @@ This rule is responsible for checking both CSS properties and values. When a phy
       {
         "severity": "warning",
         "disable-auto-fix": true,
-        "ignore": ['overflow-y', 'overflow-x']
+        "ignore": ["overflow-y", "overflow-x"]
       }
     ],
   }
@@ -227,7 +227,7 @@ This rule is responsible for checking that logical CSS units are used. Specifica
       {
         "severity": "warning",
         "disable-auto-fix": true,
-        "ignore": ['dvh', 'dvw']
+        "ignore": ["dvh", "dvw"]
       }
     ],
   }
