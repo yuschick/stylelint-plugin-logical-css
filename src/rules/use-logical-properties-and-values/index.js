@@ -60,9 +60,6 @@ const ruleFunction = (_, options, context) => {
       }
 
       stylelint.utils.report({
-        column: decl.source.start.column,
-        endColumn: rootProp.length,
-        line: decl.source.start.line,
         message,
         node: decl,
         result,
