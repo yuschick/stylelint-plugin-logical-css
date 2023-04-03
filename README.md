@@ -42,32 +42,39 @@ configuration.
 
 ## Rules
 
-Let's explore each rule to better understand what it does, and does not, allow.
+### plugin/use-logical-properties-and-values
 
-### `plugin/use-logical-properties-and-values`
-
-**👉 [Learn more about this rule](./src/rules/use-logical-properties-and-values)
-👈**
-
-This rule is responsible for checking both CSS properties and values. When a
-physical property or value is found, it will be flagged.
-
-#### Options
-
-The use-logical-properties-and-values rule accepts the following options:
-
-| Option          | Value | Description                                                                                     |
-| --------------- | --- | ----------------------------------------------------------------------------------------------- |
-| enable-auto-fix | `true \| false` | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
-| [physical property] | `false \| 'off'` | Disable linting a specific physical property, like `overflow-y: false` to disable linting `overflow-y` declaration |
+This rule is responsible for checking both CSS properties and values. When a physical property or value is found, it will be flagged.
 
 ```json
 {
   "rules": {
     "plugin/use-logical-properties-and-values": [
       true,
-      { "severity": "warning", "enable-auto-fix": true }
-    ]
+      { "severity": "warning" }
+    ],
+  }
+}
+```
+
+#### Options
+
+| Option          | Description                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
+| ignore | Pass an array of physical properties to ignore while linting. |
+
+```json
+{
+  "rules": {
+    "plugin/use-logical-properties-and-values": [
+      true,
+      {
+        "severity": "warning",
+        "disable-auto-fix": true,
+        "ignore": ['overflow-y', 'overflow-x']
+      }
+    ],
   }
 }
 ```
@@ -92,33 +99,137 @@ The use-logical-properties-and-values rule accepts the following options:
 }
 ```
 
+#### Supported Properties and Values
+
+##### Properties for sizing
+
+| Physical Property |  Logical Property |
+| ----------------- | ----------------- |
+| `height`          | `block-size`      |
+| `width`           | `inline-size`     |
+| `max-height`      | `max-block-size`  |
+| `max-width`       | `max-inline-size` |
+| `min-height`      | `min-block-size`  |
+| `min-width`       | `min-inline-size` |
+
+##### Properties for margins, borders, and padding
+
+| Physical Property                          |  Logical Property           |
+| ------------------------------------------ | --------------------------- |
+| `border-top` & `border-bottom`             | `border-block`              |
+| `border-top-color` & `border-bottom-color` | `border-block-color`        |
+| `border-top-style` & `border-bottom-style` | `border-block-style`        |
+| `border-top-width` & `border-bottom-width` | `border-block-width`        |
+| `border-left` & `border-right`             | `border-inline`             |
+| `border-left-color` & `border-right-color` | `border-inline-color`       |
+| `border-left-style` & `border-right-style` | `border-inline-style`       |
+| `border-left-width` & `border-right-width` | `border-inline-width`       |
+| `border-bottom`                            | `border-block-end`          |
+| `border-bottom-color`                      | `border-block-end-color`    |
+| `border-bottom-style`                      | `border-block-end-style`    |
+| `border-bottom-width`                      | `border-block-end-width`    |
+| `border-top`                               | `border-block-start`        |
+| `border-top-color`                         | `border-block-start-color`  |
+| `border-top-style`                         | `border-block-start-style`  |
+| `border-top-width`                         | `border-block-start-width`  |
+| `border-right`                             | `border-inline-end`         |
+| `border-right-color`                       | `border-inline-end-color`   |
+| `border-right-style`                       | `border-inline-end-style`   |
+| `border-right-width`                       | `border-inline-end-width`   |
+| `border-left`                              | `border-inline-start`       |
+| `border-left-color`                        | `border-inline-start-color` |
+| `border-left-style`                        | `border-inline-start-style` |
+| `border-left-width`                        | `border-inline-start-width` |
+| `border-bottom-left-radius`                | `border-end-start-radius`   |
+| `border-bottom-right-radius`               | `border-end-end-radius`     |
+| `border-top-left-radius`                   | `border-start-start-radius` |
+| `border-top-right-radius`                  | `border-start-end-radius`   |
+| `margin-top` & `margin-bottom`             | `margin-block`              |
+| `margin-top`                               | `margin-block-start`        |
+| `margin-bottom`                            | `margin-block-end`          |
+| `margin-left` & `margin-right`             | `margin-inline`             |
+| `margin-left`                              | `margin-inline-start`       |
+| `margin-right`                             | `margin-inline-end`         |
+| `padding-top` & `padding-bottom`           | `padding-block`             |
+| `padding-top`                              | `padding-block-start`       |
+| `padding-bottom`                           | `padding-block-end`         |
+| `padding-left` & `padding-right`           | `padding-inline`            |
+| `padding-left`                             | `padding-inline-start`      |
+| `padding-right`                            | `padding-inline-end`        |
+
+##### Properties for floating and positioning
+
+| Physical Property |  Logical Property     |
+| ----------------- | --------------------- |
+| `clear: left`     | `clear: inline-start` |
+| `clear: right`    | `clear: inline-end`   |
+| `float: left`     | `float: inline-start` |
+| `float: right`    | `float: inline-end`   |
+| `top` & `bottom`  | `inset-block`         |
+| `top`             | `inset-block-start`   |
+| `bottom`          | `inset-block-end`     |
+| `left` & `right`  | `inset-inline`        |
+| `left`            | `inset-inline-start`  |
+| `right`           | `inset-inline-end`    |
+
+##### Properties for size containment
+
+| Physical Property          |  Logical Property               |
+| -------------------------- | ------------------------------- |
+| `contain-intrinsic-height` | `contain-intrinsic-block-size`  |
+| `contain-intrinsic-width`  | `contain-intrinsic-inline-size` |
+
+##### Other properties
+
+| Physical Property                  |  Logical Property                   |
+| ---------------------------------- | ----------------------------------- |
+| `(-webkit-)box-orient: vertical`   | `(-webkit-)box-orient: block-axis`  |
+| `(-webkit-)box-orient: horizontal` | `(-webkit-)box-orient: inline-axis` |
+| `caption-size: top`                | `caption-side: block-start`         |
+| `caption-size: bottom`             | `caption-side: block-end`           |
+| `caption-size: right`              | `caption-side: inline-end`          |
+| `caption-size: left`               | `caption-side: inline-start`        |
+| `overflow-y`                       | `overflow-block`                    |
+| `overflow-x`                       | `overflow-inline`                   |
+| `overscroll-behavior-x`            | `overscroll-behavior-inline`        |
+| `overscroll-behavior-y`            | `overscroll-behavior-block`         |
+| `resize: horizontal`               | `resize: inline`                    |
+| `resize: vertical`                 | `resize: block`                     |
+| `text-align: left`                 | `text-align: start`                 |
+| `text-align: right`                | `text-align: end`                   |
+
 ---
 
-### `plugin/use-logical-units`
+### plugin/use-logical-units
 
-**👉 [Learn more about this rule](./src/rules/use-logical-units) 👈**
-
-This rule is responsible for checking that logical CSS units are used.
-Specifically, viewport units like `vw` and `vh` which stand for viewport width
-and viewport height respectively will not reflect different writing modes and
-directions. Instead, this rule will enforce the logical equivalents, `vi` and
-`vb`.
-
-#### Options
-
-The use-logical-units rule accepts the following options:
-
-| Option          | Description                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| enable-auto-fix | Use this option in addition to the native Stylelint `--fix` flag to enable auto fixing on save. |
+This rule is responsible for checking that logical CSS units are used. Specifically, viewport units like `vw` and `vh` which stand for viewport width and viewport height respectively will not reflect different writing modes and directions. Instead, this rule will enforce the logical equivalents, `vi` and `vb`.
 
 ```json
 {
   "rules": {
-    "plugin/use-logical-units": [
+    "plugin/use-logical-units": [true, { "severity": "warning" }]
+  }
+}
+```
+
+#### Options
+
+| Option          | Description                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
+| ignore | Pass an array of physical units to ignore while linting. |
+
+```json
+{
+  "rules": {
+    "plugin/use-logical-properties-and-values": [
       true,
-      { "severity": "warning", "enable-auto-fix": true }
-    ]
+      {
+        "severity": "warning",
+        "disable-auto-fix": true,
+        "ignore": ['dvh', 'dvw']
+      }
+    ],
   }
 }
 ```
@@ -141,8 +252,18 @@ body {
 }
 ```
 
-## TODO
+#### Supported Units
 
-What can be expected in the future.
+> Read about current
+> [browser support for logical viewport units](https://caniuse.com/mdn-css_types_length_viewport_percentage_units_dynamic).
 
-- Support disabling individual property checks
+| Physical Unit |  Logical Unit |
+| ------------- | ------------- |
+| dvh           | dvb           |
+| dvw           | dvi           |
+| lvh           | lvb           |
+| lvw           | lvi           |
+| svh           | svb           |
+| svw           | svi           |
+| vh            | vb            |
+| vw            | vi            |
