@@ -50,7 +50,7 @@ const ruleFunction = (_, options, context) => {
             physicalValuesMap[rootProp][decl.value],
           );
 
-      if (context.fix && options?.['enable-auto-fix']) {
+      if (context.fix && !options?.['disable-auto-fix']) {
         if (propIsPhysical) {
           decl.prop = physicalPropertiesMap[rootProp];
         }
