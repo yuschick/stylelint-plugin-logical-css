@@ -22,8 +22,8 @@ const ruleFunction = (_, options, context) => {
       const physicalUnit = getValueUnit(decl.value);
 
       if (
-        options?.[physicalUnit] === false ||
-        options?.[physicalUnit] === 'off'
+        Array.isArray(options?.ignore) &&
+        options?.ignore.includes(physicalUnit)
       ) {
         return;
       }

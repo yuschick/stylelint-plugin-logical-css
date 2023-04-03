@@ -20,7 +20,10 @@ const ruleFunction = (_, options, context) => {
 
     root.walkDecls((decl) => {
       let rootProp = decl.prop;
-      if (options?.[rootProp] === false || options?.[rootProp] === 'off') {
+      if (
+        Array.isArray(options?.ignore) &&
+        options?.ignore.includes(rootProp)
+      ) {
         return;
       }
 
