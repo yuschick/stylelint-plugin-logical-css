@@ -29,3 +29,23 @@ testRule({
     })),
   ],
 });
+
+/* eslint-disable-next-line no-undef  */
+testRule({
+  ruleName,
+  config: [true, { dvh: false }],
+  plugins: ['./index.js'],
+  accept: [
+    {
+      code: 'div { top: 1dvh; };',
+      description: 'Allow dvh unit when the option is disabled.',
+    },
+  ],
+  reject: [
+    {
+      code: 'div { top: 1dvw; };',
+      description: 'Using a physical unit that is not disabled in the options.',
+      message: messages.unexpectedUnit('dvw', 'dvi'),
+    },
+  ],
+});
