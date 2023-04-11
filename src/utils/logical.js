@@ -71,6 +71,18 @@ const logicalProperties = Object.freeze({
   paddingInline: 'padding-inline',
   paddingInlineEnd: 'padding-inline-end',
   paddingInlineStart: 'padding-inline-start',
+  scrollMarginBlock: 'scroll-margin-block',
+  scrollMarginBlockEnd: 'scroll-margin-block-end',
+  scrollMarginBlockStart: 'scroll-margin-block-start',
+  scrollMarginInline: 'scroll-margin-inline',
+  scrollMarginInlineEnd: 'scroll-margin-inline-end',
+  scrollMarginInlineStart: 'scroll-margin-inline-start',
+  scrollPaddingBlock: 'scroll-padding-block',
+  scrollPaddingBlockEnd: 'scroll-padding-block-end',
+  scrollPaddingBlockStart: 'scroll-padding-block-start',
+  scrollPaddingInline: 'scroll-padding-inline',
+  scrollPaddingInlineEnd: 'scroll-padding-inline-end',
+  scrollPaddingInlineStart: 'scroll-padding-inline-start',
 });
 
 const logicalUnits = Object.freeze({
