@@ -134,7 +134,7 @@ testRule({
       fixed: `body { ${physicalPropertiesMap[property]}: 1rem; };`,
     })),
 
-    // VALUEs
+    // VALUES
     {
       code: 'p { -webkit-box-orient: vertical; };',
       description: 'Using a physical -webkit-box-orient value',

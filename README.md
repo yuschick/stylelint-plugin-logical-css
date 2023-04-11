@@ -49,7 +49,8 @@ configuration.
 
 ### plugin/use-logical-properties-and-values
 
-This rule is responsible for checking both CSS properties and values. When a physical property or value is found, it will be flagged.
+This rule is responsible for checking both CSS properties and values. When a
+physical property or value is found, it will be flagged.
 
 ```json
 {
@@ -57,17 +58,17 @@ This rule is responsible for checking both CSS properties and values. When a phy
     "plugin/use-logical-properties-and-values": [
       true,
       { "severity": "warning" }
-    ],
+    ]
   }
 }
 ```
 
 #### Options
 
-| Option          | Description                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
+| Option           | Description                                                              |
+| ---------------- | ------------------------------------------------------------------------ |
 | disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
-| ignore | Pass an array of physical properties to ignore while linting. |
+| ignore           | Pass an array of physical properties to ignore while linting.            |
 
 ```json
 {
@@ -79,7 +80,7 @@ This rule is responsible for checking both CSS properties and values. When a phy
         "disable-auto-fix": true,
         "ignore": ["overflow-y", "overflow-x"]
       }
-    ],
+    ]
   }
 }
 ```
@@ -186,28 +187,44 @@ This rule is responsible for checking both CSS properties and values. When a phy
 
 ##### Other properties
 
-| Physical Property                  |  Logical Property                   |
-| ---------------------------------- | ----------------------------------- |
-| `(-webkit-)box-orient: vertical`   | `(-webkit-)box-orient: block-axis`  |
-| `(-webkit-)box-orient: horizontal` | `(-webkit-)box-orient: inline-axis` |
-| `caption-size: top`                | `caption-side: block-start`         |
-| `caption-size: bottom`             | `caption-side: block-end`           |
-| `caption-size: right`              | `caption-side: inline-end`          |
-| `caption-size: left`               | `caption-side: inline-start`        |
-| `overflow-y`                       | `overflow-block`                    |
-| `overflow-x`                       | `overflow-inline`                   |
-| `overscroll-behavior-x`            | `overscroll-behavior-inline`        |
-| `overscroll-behavior-y`            | `overscroll-behavior-block`         |
-| `resize: horizontal`               | `resize: inline`                    |
-| `resize: vertical`                 | `resize: block`                     |
-| `text-align: left`                 | `text-align: start`                 |
-| `text-align: right`                | `text-align: end`                   |
+| Physical Property                              |  Logical Property                   |
+| ---------------------------------------------- | ----------------------------------- |
+| `(-webkit-)box-orient: vertical`               | `(-webkit-)box-orient: block-axis`  |
+| `(-webkit-)box-orient: horizontal`             | `(-webkit-)box-orient: inline-axis` |
+| `caption-size: top`                            | `caption-side: block-start`         |
+| `caption-size: bottom`                         | `caption-side: block-end`           |
+| `caption-size: right`                          | `caption-side: inline-end`          |
+| `caption-size: left`                           | `caption-side: inline-start`        |
+| `overflow-y`                                   | `overflow-block`                    |
+| `overflow-x`                                   | `overflow-inline`                   |
+| `overscroll-behavior-x`                        | `overscroll-behavior-inline`        |
+| `overscroll-behavior-y`                        | `overscroll-behavior-block`         |
+| `resize: horizontal`                           | `resize: inline`                    |
+| `resize: vertical`                             | `resize: block`                     |
+| 'scroll-margin-bottom`                         | `scroll-margin-block-end`           |
+| 'scroll-margin-bottom` & 'scroll-margin-top`   | `scroll-margin-block`               |
+| 'scroll-margin-left`                           | `scroll-margin-inline-start`        |
+| 'scroll-margin-left` & 'scroll-margin-right`   | `scroll-margin-inline`              |
+| 'scroll-margin-right`                          | `scroll-margin-inline-end`          |
+| 'scroll-margin-top`                            | `scroll-margin-block-start`         |
+| 'scroll-padding-bottom`                        | `scroll-padding-block-end`          |
+| 'scroll-padding-bottom` & 'scroll-padding-top` | `scroll-padding-block`              |
+| 'scroll-padding-left`                          | `scroll-padding-inline-start`       |
+| 'scroll-padding-left` & 'scroll-padding-right` | `scroll-padding-inline`             |
+| 'scroll-padding-right`                         | `scroll-padding-inline-end`         |
+| 'scroll-padding-top`                           | `scroll-padding-block-start`        |
+| `text-align: left`                             | `text-align: start`                 |
+| `text-align: right`                            | `text-align: end`                   |
 
 ---
 
 ### plugin/use-logical-units
 
-This rule is responsible for checking that logical CSS units are used. Specifically, viewport units like `vw` and `vh` which stand for viewport width and viewport height respectively will not reflect different writing modes and directions. Instead, this rule will enforce the logical equivalents, `vi` and `vb`.
+This rule is responsible for checking that logical CSS units are used.
+Specifically, viewport units like `vw` and `vh` which stand for viewport width
+and viewport height respectively will not reflect different writing modes and
+directions. Instead, this rule will enforce the logical equivalents, `vi` and
+`vb`.
 
 ```json
 {
@@ -219,10 +236,10 @@ This rule is responsible for checking that logical CSS units are used. Specifica
 
 #### Options
 
-| Option          | Description                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
+| Option           | Description                                                              |
+| ---------------- | ------------------------------------------------------------------------ |
 | disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
-| ignore | Pass an array of physical units to ignore while linting. |
+| ignore           | Pass an array of physical units to ignore while linting.                 |
 
 ```json
 {
@@ -234,7 +251,7 @@ This rule is responsible for checking that logical CSS units are used. Specifica
         "disable-auto-fix": true,
         "ignore": ["dvh", "dvw"]
       }
-    ],
+    ]
   }
 }
 ```
