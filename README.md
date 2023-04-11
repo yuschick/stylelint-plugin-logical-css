@@ -201,18 +201,18 @@ physical property or value is found, it will be flagged.
 | `overscroll-behavior-y`                        | `overscroll-behavior-block`         |
 | `resize: horizontal`                           | `resize: inline`                    |
 | `resize: vertical`                             | `resize: block`                     |
-| 'scroll-margin-bottom`                         | `scroll-margin-block-end`           |
-| 'scroll-margin-bottom` & 'scroll-margin-top`   | `scroll-margin-block`               |
-| 'scroll-margin-left`                           | `scroll-margin-inline-start`        |
-| 'scroll-margin-left` & 'scroll-margin-right`   | `scroll-margin-inline`              |
-| 'scroll-margin-right`                          | `scroll-margin-inline-end`          |
-| 'scroll-margin-top`                            | `scroll-margin-block-start`         |
-| 'scroll-padding-bottom`                        | `scroll-padding-block-end`          |
-| 'scroll-padding-bottom` & 'scroll-padding-top` | `scroll-padding-block`              |
-| 'scroll-padding-left`                          | `scroll-padding-inline-start`       |
-| 'scroll-padding-left` & 'scroll-padding-right` | `scroll-padding-inline`             |
-| 'scroll-padding-right`                         | `scroll-padding-inline-end`         |
-| 'scroll-padding-top`                           | `scroll-padding-block-start`        |
+| `scroll-margin-bottom`                         | `scroll-margin-block-end`           |
+| `scroll-margin-bottom` & `scroll-margin-top`   | `scroll-margin-block`               |
+| `scroll-margin-left`                           | `scroll-margin-inline-start`        |
+| `scroll-margin-left` & `scroll-margin-right`   | `scroll-margin-inline`              |
+| `scroll-margin-right`                          | `scroll-margin-inline-end`          |
+| `scroll-margin-top`                            | `scroll-margin-block-start`         |
+| `scroll-padding-bottom`                        | `scroll-padding-block-end`          |
+| `scroll-padding-bottom` & `scroll-padding-top` | `scroll-padding-block`              |
+| `scroll-padding-left`                          | `scroll-padding-inline-start`       |
+| `scroll-padding-left` & `scroll-padding-right` | `scroll-padding-inline`             |
+| `scroll-padding-right`                         | `scroll-padding-inline-end`         |
+| `scroll-padding-top`                           | `scroll-padding-block-start`        |
 | `text-align: left`                             | `text-align: start`                 |
 | `text-align: right`                            | `text-align: end`                   |
 
