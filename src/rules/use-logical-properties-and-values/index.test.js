@@ -36,6 +36,10 @@ testRule({
       code: 'div { transition: inline-size 1s ease, block-size 1s ease; };',
       description: 'Testing a transition property with logical property value.',
     },
+    {
+      code: 'div { transition: inline-size var(--width-duration) ease block-size var(--height-duration) ease; };',
+      description: 'Testing a transition property with logical property value.',
+    },
 
     // PROPERTIES TO SKIP
     {
