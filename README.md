@@ -191,10 +191,10 @@ physical property or value is found, it will be flagged.
 | ---------------------------------------------- | ----------------------------------- |
 | `(-webkit-)box-orient: vertical`               | `(-webkit-)box-orient: block-axis`  |
 | `(-webkit-)box-orient: horizontal`             | `(-webkit-)box-orient: inline-axis` |
-| `caption-size: top`                            | `caption-side: block-start`         |
-| `caption-size: bottom`                         | `caption-side: block-end`           |
-| `caption-size: right`                          | `caption-side: inline-end`          |
-| `caption-size: left`                           | `caption-side: inline-start`        |
+| `caption-side: top`                            | `caption-side: block-start`         |
+| `caption-side: bottom`                         | `caption-side: block-end`           |
+| `caption-side: right`                          | `caption-side: inline-end`          |
+| `caption-side: left`                           | `caption-side: inline-start`        |
 | `overflow-y`                                   | `overflow-block`                    |
 | `overflow-x`                                   | `overflow-inline`                   |
 | `overscroll-behavior-x`                        | `overscroll-behavior-inline`        |
