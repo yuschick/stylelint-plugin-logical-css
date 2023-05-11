@@ -32,6 +32,10 @@ testRule({
       code: 'div { transition: inline-size 1s ease; };',
       description: 'Testing a transition property with logical property value.',
     },
+    {
+      code: 'div { transition: inline-size 1s ease, block-size 1s ease; };',
+      description: 'Testing a transition property with logical property value.',
+    },
 
     // PROPERTIES TO SKIP
     {
@@ -144,6 +148,31 @@ testRule({
       description: 'Using a transition property with physical property value.',
       message: messages.unexpectedTransitionValue('width', 'inline-size'),
       fixed: 'div { transition: inline-size 1s ease; };',
+    },
+    {
+      code: 'div { transition: width 1s ease, opacity 1s ease; };',
+      description:
+        'Using a transition property with physical property value and unrelated value.',
+      message: messages.unexpectedTransitionValue('width', 'inline-size'),
+      fixed: 'div { transition: inline-size 1s ease, opacity 1s ease; };',
+    },
+    {
+      code: 'div { transition: width 1s ease, height 1s ease; };',
+      description:
+        'Using a transition property with multiple physical property values.',
+      message: messages.unexpectedTransitionValue('height', 'block-size'),
+      fixed: 'div { transition: inline-size 1s ease, block-size 1s ease; };',
+    },
+    {
+      code: 'div { transition: border-top 1s ease, opacity 1s var(--test-width-var); };',
+      description:
+        'Using a transition property with multiple physical property values.',
+      message: messages.unexpectedTransitionValue(
+        'border-top',
+        'border-block-start',
+      ),
+      fixed:
+        'div { transition: border-block-start 1s ease, opacity 1s var(--test-width-var); };',
     },
     {
       code: 'p { -webkit-box-orient: vertical; };',

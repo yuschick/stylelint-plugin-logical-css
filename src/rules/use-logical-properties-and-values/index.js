@@ -38,16 +38,25 @@ const ruleFunction = (_, options, context) => {
       if (!isValidProp) return;
 
       const isTransitionProperty = rootProp === 'transition';
-      const physicalTransitionValue =
+      const physicalTransitionProperties =
         isTransitionProperty &&
-        Object.values(physicalProperties).find((property) =>
-          decl.value.includes(property) ? property : null,
-        );
+        Object.values(physicalProperties)
+          .flatMap((property) => {
+            const exp = new RegExp(`(^|[^\\w-])${property}([^\\w-]|$)`);
+            return decl.value.match(exp);
+          })
+          .filter((p) => p && p.trim());
+
       const propIsPhysical = isPhysicalProperty(decl.prop);
       const valueIsPhysical = isPhysicalValue(decl.value);
 
-      if (!propIsPhysical && !valueIsPhysical && !physicalTransitionValue)
+      if (
+        !propIsPhysical &&
+        !valueIsPhysical &&
+        !physicalTransitionProperties.length
+      ) {
         return;
+      }
 
       let message;
 
@@ -64,11 +73,11 @@ const ruleFunction = (_, options, context) => {
           physicalValuesMap[rootProp][decl.value],
         );
       }
-
-      if (physicalTransitionValue) {
+      if (physicalTransitionProperties.length) {
+        const propertyToFlag = physicalTransitionProperties[0].trim();
         message = ruleMessages.unexpectedTransitionValue(
-          physicalTransitionValue,
-          physicalPropertiesMap[physicalTransitionValue],
+          propertyToFlag,
+          physicalPropertiesMap[propertyToFlag],
         );
       }
 
@@ -81,11 +90,16 @@ const ruleFunction = (_, options, context) => {
           decl.value = physicalValuesMap[rootProp][decl.value];
         }
 
-        if (physicalTransitionValue) {
-          decl.value = decl.value.replace(
-            physicalTransitionValue,
-            physicalPropertiesMap[physicalTransitionValue],
-          );
+        if (physicalTransitionProperties.length) {
+          let newValue = decl.value;
+          physicalTransitionProperties.forEach((property) => {
+            newValue = newValue.replace(
+              property.trim(),
+              physicalPropertiesMap[property.trim()],
+            );
+          });
+
+          decl.value = newValue;
         }
 
         return;
