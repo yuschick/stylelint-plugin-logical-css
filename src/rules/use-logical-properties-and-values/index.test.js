@@ -28,6 +28,10 @@ testRule({
       code: 'div { box-orient: block-axis; };',
       description: 'Testing to -webkit-box-orient property',
     },
+    {
+      code: 'div { transition: inline-size 1s ease; };',
+      description: 'Testing a transition property with logical property value.',
+    },
 
     // PROPERTIES TO SKIP
     {
@@ -135,6 +139,12 @@ testRule({
     })),
 
     // VALUES
+    {
+      code: 'div { transition: width 1s ease; };',
+      description: 'Using a transition property with physical property value.',
+      message: messages.unexpectedTransitionValue('width', 'inline-size'),
+      fixed: 'div { transition: inline-size 1s ease; };',
+    },
     {
       code: 'p { -webkit-box-orient: vertical; };',
       description: 'Using a physical -webkit-box-orient value',
