@@ -11,6 +11,9 @@ const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
   unexpectedValue(property, physicalValue, logicalValue) {
     return `Unexpected "${physicalValue}" value in "${property}" property. Use "${logicalValue}".`;
   },
+  unexpectedTransitionValue(physicalValue, logicalValue) {
+    return `Unexpected "${physicalValue}" value in "transition" property. Use "${logicalValue}".`;
+  },
 });
 
 const ruleMeta = {
