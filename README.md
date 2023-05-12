@@ -93,6 +93,8 @@ physical property or value is found, it will be flagged.
 .heading {
   max-width: 90ch; /* Will flag the use of "width" */
   text-align: left; /* Will flag the use of "left" */
+  opacity: 1;
+  transition: opacity 1s ease, max-width 1s ease; /* Will flag the use of 'max-width' */
 }
 ```
 
@@ -102,6 +104,8 @@ physical property or value is found, it will be flagged.
 .heading {
   max-inline-size: 90ch;
   text-align: start;
+  opacity: 1;
+  transition: opacity 1s ease, max-inline-size: 1s ease;
 }
 ```
 
