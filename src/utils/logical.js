@@ -86,6 +86,8 @@ const logicalProperties = Object.freeze({
 });
 
 const logicalUnits = Object.freeze({
+  cqb: 'cqb',
+  cqi: 'cqi',
   dvb: 'dvb',
   dvi: 'dvi',
   lvb: 'lvb',

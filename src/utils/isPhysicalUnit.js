@@ -1,6 +1,6 @@
 const { physicalUnits } = require('./physical');
 
-const expression = /(\d+\s?)(dvh|dvw|lvh|lvw|svh|svw|vh|vw|)(\s+|$)/;
+const expression = /(\d+\s?)(cqh|cqw|dvh|dvw|lvh|lvw|svh|svw|vh|vw|)(\s+|$)/;
 
 function getValueUnit(value) {
   const match = value.match(expression);

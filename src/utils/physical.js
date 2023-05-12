@@ -67,6 +67,8 @@ const physicalProperties = Object.freeze({
 });
 
 const physicalUnits = Object.freeze({
+  cqh: 'cqh',
+  cqw: 'cqw',
   dvh: 'dvh',
   dvw: 'dvw',
   lvh: 'lvh',

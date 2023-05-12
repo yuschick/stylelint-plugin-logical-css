@@ -285,6 +285,8 @@ body {
 
 | Physical Unit |  Logical Unit |
 | ------------- | ------------- |
+| cqh           | cqb           |
+| cqw           | cqi           |
 | dvh           | dvb           |
 | dvw           | dvi           |
 | lvh           | lvb           |
