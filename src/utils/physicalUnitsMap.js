@@ -2,6 +2,8 @@ const { logicalUnits } = require('./logical');
 const { physicalUnits } = require('./physical');
 
 const physicalUnitsMap = Object.freeze({
+  [physicalUnits.cqh]: logicalUnits.cqb,
+  [physicalUnits.cqw]: logicalUnits.cqi,
   [physicalUnits.dvh]: logicalUnits.dvb,
   [physicalUnits.dvw]: logicalUnits.dvi,
   [physicalUnits.lvh]: logicalUnits.lvb,
