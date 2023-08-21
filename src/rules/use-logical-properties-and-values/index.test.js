@@ -307,9 +307,7 @@ testRule({
   plugins: ['./index.js'],
   accept: [
     {
-      code: `div {
-  overflow-y: auto;
-};`,
+      code: `div { overflow-y: auto; };`,
       description: 'Allow overflow-y when the option is disabled with false.',
     },
   ],
