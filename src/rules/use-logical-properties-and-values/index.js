@@ -81,7 +81,7 @@ const ruleFunction = (_, options, context) => {
         );
       }
 
-      if (context.fix && !options?.['disable-auto-fix']) {
+      if (context.fix) {
         if (propIsPhysical) {
           decl.prop = physicalPropertiesMap[rootProp];
         }

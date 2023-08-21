@@ -65,10 +65,9 @@ physical property or value is found, it will be flagged.
 
 #### Options
 
-| Option           | Description                                                              |
-| ---------------- | ------------------------------------------------------------------------ |
-| disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
-| ignore           | Pass an array of physical properties to ignore while linting.            |
+| Option | Description                                                   |
+| ------ | ------------------------------------------------------------- |
+| ignore | Pass an array of physical properties to ignore while linting. |
 
 ```json
 {
@@ -77,7 +76,6 @@ physical property or value is found, it will be flagged.
       true,
       {
         "severity": "warning",
-        "disable-auto-fix": true,
         "ignore": ["overflow-y", "overflow-x"]
       }
     ]
@@ -240,10 +238,9 @@ directions. Instead, this rule will enforce the logical equivalents, `vi` and
 
 #### Options
 
-| Option           | Description                                                              |
-| ---------------- | ------------------------------------------------------------------------ |
-| disable-auto-fix | Use this option to prevent auto-fixing warnings and errors while saving. |
-| ignore           | Pass an array of physical units to ignore while linting.                 |
+| Option | Description                                              |
+| ------ | -------------------------------------------------------- |
+| ignore | Pass an array of physical units to ignore while linting. |
 
 ```json
 {
@@ -252,7 +249,6 @@ directions. Instead, this rule will enforce the logical equivalents, `vi` and
       true,
       {
         "severity": "warning",
-        "disable-auto-fix": true,
         "ignore": ["dvh", "dvw"]
       }
     ]
