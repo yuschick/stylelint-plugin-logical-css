@@ -66,7 +66,7 @@ physical property or value is found, it will be flagged.
 #### Options
 
 > Note: As of v0.13.0, the original `disable-auto-fix` option has been removed.
-> PLease use Stylelint's `disableFix` option instead.
+> Please use Stylelint's `disableFix` option instead.
 
 | Option | Description                                                   |
 | ------ | ------------------------------------------------------------- |
@@ -242,7 +242,7 @@ directions. Instead, this rule will enforce the logical equivalents, `vi` and
 #### Options
 
 > Note: As of v0.13.0, the original `disable-auto-fix` option has been removed.
-> PLease use Stylelint's `disableFix` option instead.
+> Please use Stylelint's `disableFix` option instead.
 
 | Option | Description                                              |
 | ------ | -------------------------------------------------------- |
