@@ -7,7 +7,6 @@ const { getValueUnit, isPhysicalUnit } = require('../../utils/isPhysicalUnit');
 const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
 
 const ruleFunction = (_, options, context) => {
-  console.log({ options, context });
   return (root, result) => {
     const validOptions = stylelint.utils.validateOptions(result, ruleName);
 
