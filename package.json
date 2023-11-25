@@ -1,6 +1,6 @@
 {
   "name": "stylelint-plugin-logical-css",
-  "version": "0.13.2",
+  "version": "1.0.0",
   "description": "A Stylelint plugin to enforce the use of logical CSS properties, values and units.",
   "main": "src/index.js",
   "files": [
@@ -22,18 +22,21 @@
   },
   "homepage": "https://github.com/yuschick/stylelint-plugin-logical-css#readme",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.12.0"
   },
   "keywords": [
     "Stylelint",
     "Plugin",
+    "stylelint-plugin",
     "CSS",
     "Logical CSS",
     "Internationalization",
-    "i18n"
+    "i18n",
+    "lint",
+    "linter"
   ],
   "peerDependencies": {
-    "stylelint": "^14.0.0 || ^15.0.0"
+    "stylelint": "^14.0.0 || ^15.0.0 || ^16.0.0-2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
@@ -46,7 +49,7 @@
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "prettier-eslint": "^15.0.1",
-    "stylelint": "^15.2.0"
+    "stylelint": "^16.0.0-2"
   },
   "lint-staged": {
     "**/*.{js|md}": [
