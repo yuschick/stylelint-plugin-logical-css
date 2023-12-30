@@ -1,15 +1,11 @@
-const {
-  logicalAxis,
-  logicalInlinePoints,
-  logicalValues,
-} = require('./logical');
-const {
+import { logicalAxis, logicalInlinePoints, logicalValues } from './logical.js';
+import {
   physicalAxis,
   physicalProperties,
   physicalValues,
-} = require('./physical');
+} from './physical.js';
 
-const physicalValuesMap = Object.freeze({
+export const physicalValuesMap = Object.freeze({
   [physicalProperties.boxOrient]: {
     [physicalAxis.horizontal]: `${logicalAxis.inline}-axis`,
     [physicalAxis.vertical]: `${logicalAxis.block}-axis`,
@@ -37,7 +33,3 @@ const physicalValuesMap = Object.freeze({
     [physicalValues.right]: logicalInlinePoints.end,
   },
 });
-
-module.exports = {
-  physicalValuesMap,
-};

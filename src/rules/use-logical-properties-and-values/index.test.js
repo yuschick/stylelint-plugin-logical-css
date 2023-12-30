@@ -1,11 +1,8 @@
-'use strict';
+import rule from './index.js';
+import { logicalProperties } from '../../utils/logical.js';
+import { physicalPropertiesMap } from '../../utils/physicalPropertiesMap.js';
 
-const {
-  rule: { messages, ruleName },
-} = require('./index.js');
-
-const { logicalProperties } = require('../../utils/logical');
-const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
+const { messages, ruleName } = rule.rule;
 
 /* eslint-disable-next-line no-undef  */
 testRule({

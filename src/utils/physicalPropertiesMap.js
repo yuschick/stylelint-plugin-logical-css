@@ -1,7 +1,7 @@
-const { logicalProperties } = require('./logical');
-const { physicalProperties } = require('./physical');
+import { logicalProperties } from './logical.js';
+import { physicalProperties } from './physical.js';
 
-const physicalPropertiesMap = Object.freeze({
+export const physicalPropertiesMap = Object.freeze({
   [physicalProperties.borderBottom]: logicalProperties.borderBlockEnd,
   [physicalProperties.borderBottomColor]: logicalProperties.borderBlockEndColor,
   [physicalProperties.borderBottomLeftRadius]:
@@ -74,7 +74,3 @@ const physicalPropertiesMap = Object.freeze({
   [physicalProperties.top]: logicalProperties.insetBlockStart,
   [physicalProperties.width]: logicalProperties.inlineSize,
 });
-
-module.exports = {
-  physicalPropertiesMap,
-};

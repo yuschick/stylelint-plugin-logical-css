@@ -1,14 +1,12 @@
-'use strict';
+import stylelint from 'stylelint';
 
-const stylelint = require('stylelint');
-
-const { ruleName, ruleMessages, ruleMeta } = require('./base');
-const { vendorPrefixes } = require('../../utils/vendorPrefixes');
-const { physicalProperties } = require('../../utils/physical');
-const { isPhysicalProperty } = require('../../utils/isPhysicalProperty');
-const { isPhysicalValue } = require('../../utils/isPhysicalValue');
-const { physicalPropertiesMap } = require('../../utils/physicalPropertiesMap');
-const { physicalValuesMap } = require('../../utils/physicalValuesMap');
+import { ruleName, ruleMessages, ruleMeta } from './base.js';
+import { vendorPrefixes } from '../../utils/vendorPrefixes.js';
+import { physicalProperties } from '../../utils/physical.js';
+import { isPhysicalProperty } from '../../utils/isPhysicalProperty.js';
+import { isPhysicalValue } from '../../utils/isPhysicalValue.js';
+import { physicalPropertiesMap } from '../../utils/physicalPropertiesMap.js';
+import { physicalValuesMap } from '../../utils/physicalValuesMap.js';
 
 const ruleFunction = (_, options, context) => {
   return (root, result) => {
@@ -119,4 +117,4 @@ ruleFunction.ruleName = ruleName;
 ruleFunction.messages = ruleMessages;
 ruleFunction.meta = ruleMeta;
 
-module.exports = stylelint.createPlugin(ruleName, ruleFunction);
+export default stylelint.createPlugin(ruleName, ruleFunction);
