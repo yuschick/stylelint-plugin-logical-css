@@ -1,11 +1,11 @@
-const physicalAxis = Object.freeze({
+export const physicalAxis = Object.freeze({
   horizontal: 'horizontal',
   vertical: 'vertical',
   x: 'x',
   y: 'y',
 });
 
-const physicalProperties = Object.freeze({
+export const physicalProperties = Object.freeze({
   borderBottom: 'border-bottom',
   borderBottomColor: 'border-bottom-color',
   borderBottomLeftRadius: 'border-bottom-left-radius',
@@ -66,7 +66,7 @@ const physicalProperties = Object.freeze({
   width: 'width',
 });
 
-const physicalUnits = Object.freeze({
+export const physicalUnits = Object.freeze({
   cqh: 'cqh',
   cqw: 'cqw',
   dvh: 'dvh',
@@ -79,16 +79,9 @@ const physicalUnits = Object.freeze({
   vw: 'vw',
 });
 
-const physicalValues = Object.freeze({
+export const physicalValues = Object.freeze({
   bottom: 'bottom',
   left: 'left',
   right: 'right',
   top: 'top',
 });
-
-module.exports = {
-  physicalAxis,
-  physicalProperties,
-  physicalUnits,
-  physicalValues,
-};

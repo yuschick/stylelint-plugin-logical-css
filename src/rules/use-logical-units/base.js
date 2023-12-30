@@ -1,21 +1,13 @@
-'use strict';
+import stylelint from 'stylelint';
 
-const stylelint = require('stylelint');
+export const ruleName = 'plugin/use-logical-units';
 
-const ruleName = 'plugin/use-logical-units';
-
-const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
+export const ruleMessages = stylelint.utils.ruleMessages(ruleName, {
   unexpectedUnit(physicalUnit, logicalUnit) {
     return `Unexpected "${physicalUnit}" unit. Use "${logicalUnit}".`;
   },
 });
 
-const ruleMeta = {
+export const ruleMeta = {
   url: 'https://github.com/yuschick/stylelint-plugin-logical-css',
-};
-
-module.exports = {
-  ruleName,
-  ruleMessages,
-  ruleMeta,
 };

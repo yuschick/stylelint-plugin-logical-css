@@ -1,13 +1,9 @@
-const { physicalPropertiesMap } = require('./physicalPropertiesMap');
+import { physicalPropertiesMap } from './physicalPropertiesMap.js';
 
-function isPhysicalProperty(property) {
+export function isPhysicalProperty(property) {
   const physicalProperties = Object.keys(physicalPropertiesMap);
 
   const propIsPhysical = physicalProperties.includes(property);
 
   return propIsPhysical;
 }
-
-module.exports = {
-  isPhysicalProperty,
-};

@@ -1,7 +1,7 @@
-const { logicalUnits } = require('./logical');
-const { physicalUnits } = require('./physical');
+import { logicalUnits } from './logical.js';
+import { physicalUnits } from './physical.js';
 
-const physicalUnitsMap = Object.freeze({
+export const physicalUnitsMap = Object.freeze({
   [physicalUnits.cqh]: logicalUnits.cqb,
   [physicalUnits.cqw]: logicalUnits.cqi,
   [physicalUnits.dvh]: logicalUnits.dvb,
@@ -13,7 +13,3 @@ const physicalUnitsMap = Object.freeze({
   [physicalUnits.vh]: logicalUnits.vb,
   [physicalUnits.vw]: logicalUnits.vi,
 });
-
-module.exports = {
-  physicalUnitsMap,
-};

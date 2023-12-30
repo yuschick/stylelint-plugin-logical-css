@@ -1,14 +1,14 @@
-const logicalAxis = Object.freeze({
+export const logicalAxis = Object.freeze({
   block: 'block',
   inline: 'inline',
 });
 
-const logicalInlinePoints = Object.freeze({
+export const logicalInlinePoints = Object.freeze({
   end: 'end',
   start: 'start',
 });
 
-const logicalProperties = Object.freeze({
+export const logicalProperties = Object.freeze({
   blockSize: 'block-size',
   borderBlock: 'border-block',
   borderBlockColor: 'border-block-color',
@@ -85,7 +85,7 @@ const logicalProperties = Object.freeze({
   scrollPaddingInlineStart: 'scroll-padding-inline-start',
 });
 
-const logicalUnits = Object.freeze({
+export const logicalUnits = Object.freeze({
   cqb: 'cqb',
   cqi: 'cqi',
   dvb: 'dvb',
@@ -98,17 +98,9 @@ const logicalUnits = Object.freeze({
   vi: 'vi',
 });
 
-const logicalValues = Object.freeze({
+export const logicalValues = Object.freeze({
   blockEnd: 'block-end',
   blockStart: 'block-start',
   inlineEnd: 'inline-end',
   inlineStart: 'inline-start',
 });
-
-module.exports = {
-  logicalAxis,
-  logicalInlinePoints,
-  logicalProperties,
-  logicalUnits,
-  logicalValues,
-};

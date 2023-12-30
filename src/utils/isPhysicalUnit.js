@@ -1,8 +1,8 @@
-const { physicalUnits } = require('./physical');
+import { physicalUnits } from './physical.js';
 
 const expression = /(\d+\s?)(cqh|cqw|dvh|dvw|lvh|lvw|svh|svw|vh|vw|)(\s+|$)/;
 
-function getValueUnit(value) {
+export function getValueUnit(value) {
   const match = value.match(expression);
 
   if (!match) return false;
@@ -14,7 +14,7 @@ function getValueUnit(value) {
   return matchedUnit;
 }
 
-function isPhysicalUnit(value) {
+export function isPhysicalUnit(value) {
   const unit = getValueUnit(value);
 
   if (!unit) return false;
@@ -23,8 +23,3 @@ function isPhysicalUnit(value) {
 
   return unitIsPhysical;
 }
-
-module.exports = {
-  getValueUnit,
-  isPhysicalUnit,
-};

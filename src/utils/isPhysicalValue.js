@@ -1,6 +1,6 @@
-const { physicalAxis, physicalValues } = require('./physical');
+import { physicalAxis, physicalValues } from './physical.js';
 
-function isPhysicalValue(value) {
+export function isPhysicalValue(value) {
   const values = [
     ...Object.values(physicalValues),
     ...Object.values(physicalAxis),
@@ -10,7 +10,3 @@ function isPhysicalValue(value) {
 
   return valueIsPhysical;
 }
-
-module.exports = {
-  isPhysicalValue,
-};

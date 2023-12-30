@@ -1,11 +1,8 @@
-'use strict';
+import rule from './index.js';
+import { logicalUnits } from '../../utils/logical.js';
+import { physicalUnitsMap } from '../../utils/physicalUnitsMap.js';
 
-const {
-  rule: { messages, ruleName },
-} = require('./index.js');
-
-const { logicalUnits } = require('../../utils/logical');
-const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
+const { messages, ruleName } = rule.rule;
 
 /* eslint-disable-next-line no-undef  */
 testRule({

@@ -1,10 +1,8 @@
-'use strict';
+import stylelint from 'stylelint';
 
-const stylelint = require('stylelint');
-
-const { ruleName, ruleMessages, ruleMeta } = require('./base');
-const { getValueUnit, isPhysicalUnit } = require('../../utils/isPhysicalUnit');
-const { physicalUnitsMap } = require('../../utils/physicalUnitsMap');
+import { ruleName, ruleMessages, ruleMeta } from './base.js';
+import { getValueUnit, isPhysicalUnit } from '../../utils/isPhysicalUnit.js';
+import { physicalUnitsMap } from '../../utils/physicalUnitsMap.js';
 
 const ruleFunction = (_, options, context) => {
   return (root, result) => {
@@ -56,4 +54,4 @@ ruleFunction.ruleName = ruleName;
 ruleFunction.messages = ruleMessages;
 ruleFunction.meta = ruleMeta;
 
-module.exports = stylelint.createPlugin(ruleName, ruleFunction);
+export default stylelint.createPlugin(ruleName, ruleFunction);
