@@ -15,6 +15,14 @@ testRule({
       code: `h1 { block-size: 100${unit}; };`,
       description: `Using the logical ${unit} unit`,
     })),
+    {
+      code: 'div { inline-size: min(80vi, 100%); };',
+      description: 'Testing physical unit inside a function',
+    },
+    {
+      code: 'div { inline-size: min(100%, 80vi) };',
+      description: 'Testing physical unit inside a function',
+    },
   ],
 
   reject: [
@@ -24,6 +32,27 @@ testRule({
       message: messages.unexpectedUnit(unit, physicalUnitsMap[unit]),
       fixed: `body { block-size: 100${physicalUnitsMap[unit]}; };`,
     })),
+    {
+      code: 'div { inline-size: min(80vw, 100%) };',
+      description: 'Testing physical unit inside a function',
+      message: messages.unexpectedUnit('vw', physicalUnitsMap.vw),
+      fixed: `div { inline-size: min(80vi, 100%) };`,
+    },
+    {
+      code: 'div { inline-size: 80vh; };',
+      description: 'Testing physical unit inside a clamp function',
+      message: messages.unexpectedUnit('vh', physicalUnitsMap.vh),
+      fixed: `div { inline-size: 80vb; };`,
+    },
+    {
+      code: 'div { inline-size: clamp(80vh, 50%, 90vw); };',
+      description: 'Testing physical unit inside a clamp function',
+      message: messages.unexpectedUnit(
+        'vh,vw',
+        `${physicalUnitsMap.vh},${physicalUnitsMap.vw}`,
+      ),
+      fixed: `div { inline-size: clamp(80vb, 50%, 90vi); };`,
+    },
   ],
 });
 
