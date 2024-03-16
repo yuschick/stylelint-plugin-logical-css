@@ -19,22 +19,24 @@ const ruleFunction = (_, options, context) => {
 
       const physicalUnit = getValueUnit(decl.value);
 
-      if (
-        Array.isArray(options?.ignore) &&
-        options?.ignore.includes(physicalUnit)
-      ) {
+      const ignore = physicalUnit.some(
+        (unit) =>
+          Array.isArray(options?.ignore) && options?.ignore.includes(unit),
+      );
+
+      if (ignore) {
         return;
       }
 
       const message = ruleMessages.unexpectedUnit(
         physicalUnit,
-        physicalUnitsMap[physicalUnit],
+        physicalUnit.map((unit) => physicalUnitsMap[unit]),
       );
 
       if (context.fix) {
-        decl.value = decl.value.replace(
-          physicalUnit,
-          physicalUnitsMap[physicalUnit],
+        physicalUnit.forEach(
+          (unit) =>
+            (decl.value = decl.value.replace(unit, physicalUnitsMap[unit])),
         );
 
         return;
