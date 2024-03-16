@@ -270,6 +270,10 @@ directions. Instead, this rule will enforce the logical equivalents, `vi` and
 body {
   max-block-size: 100vh; /* Will flag the physical use of viewport "height" */
 }
+
+.container {
+  inline-size: clamp(10vw, 100%, 50vw); /* Will flag the physical use of viewport "width" */
+}
 ```
 
 ##### Allowed
