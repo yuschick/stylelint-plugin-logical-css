@@ -10,7 +10,7 @@ export function getValueUnit(value) {
   const matches = Array.isArray(match) ? match : [match];
 
   const matchedUnit = matches.map(
-    (match) => physicalUnits[match.replace(/[0-9]/g, '')],
+    (match) => physicalUnits[match.replace(/[0-9](\.[0-9])?/g, '')],
   );
 
   return matchedUnit;

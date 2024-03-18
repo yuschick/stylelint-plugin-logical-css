@@ -53,6 +53,12 @@ testRule({
       ),
       fixed: `div { inline-size: clamp(80vb, 50%, 90vi); };`,
     },
+    {
+      code: 'div { inline-size: 50.5vw; };',
+      description: 'Testing float physical unit',
+      message: messages.unexpectedUnit('vw', physicalUnitsMap.vw),
+      fixed: `div { inline-size: 50.5vi; };`,
+    },
   ],
 });
 
