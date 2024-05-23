@@ -35,6 +35,10 @@ const ruleFunction = (_, options, context) => {
       ].includes(rootProp);
       if (!isValidProp) return;
 
+      const isCaptionSideProperty = rootProp === 'caption-side';
+      const isBlockAxisCaptionSideValue =
+        isCaptionSideProperty && ['top', 'bottom'].includes(decl.value);
+
       const isTransitionProperty = rootProp === 'transition';
       const physicalTransitionProperties =
         isTransitionProperty &&
@@ -49,9 +53,10 @@ const ruleFunction = (_, options, context) => {
       const valueIsPhysical = isPhysicalValue(decl.value);
 
       if (
-        !propIsPhysical &&
-        !valueIsPhysical &&
-        !physicalTransitionProperties.length
+        (!propIsPhysical &&
+          !valueIsPhysical &&
+          !physicalTransitionProperties.length) ||
+        isBlockAxisCaptionSideValue
       ) {
         return;
       }
@@ -64,6 +69,7 @@ const ruleFunction = (_, options, context) => {
           physicalPropertiesMap[rootProp],
         );
       }
+
       if (valueIsPhysical) {
         message = ruleMessages.unexpectedValue(
           decl.prop,
@@ -71,6 +77,7 @@ const ruleFunction = (_, options, context) => {
           physicalValuesMap[rootProp][decl.value],
         );
       }
+
       if (physicalTransitionProperties.length) {
         const propertyToFlag = physicalTransitionProperties[0].trim();
         message = ruleMessages.unexpectedTransitionValue(

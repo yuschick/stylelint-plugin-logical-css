@@ -82,12 +82,12 @@ testRule({
 
     // VALUES
     {
-      code: 'table { display: flex; caption-side: block-start; };',
-      description: 'Using a logical caption-side value',
+      code: 'table { caption-side: bottom; };',
+      description: 'Testing block-xx caption side property to skip',
     },
     {
-      code: 'table { caption-side: block-end; };',
-      description: 'Using a logical caption-side value',
+      code: 'table { caption-side: top; };',
+      description: 'Testing block-xx caption side property to skip',
     },
     {
       code: 'table { caption-side: inline-start; };',
@@ -222,12 +222,6 @@ testRule({
       fixed: 'p { box-orient: inline-axis; };',
     },
     {
-      code: 'table { caption-side: bottom; };',
-      description: 'Using a physical caption-side value',
-      message: messages.unexpectedValue('caption-side', 'bottom', 'block-end'),
-      fixed: 'table { caption-side: block-end; };',
-    },
-    {
       code: 'table { caption-side: left; };',
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'left', 'inline-start'),
@@ -238,12 +232,6 @@ testRule({
       description: 'Using a physical caption-side value',
       message: messages.unexpectedValue('caption-side', 'right', 'inline-end'),
       fixed: 'table { caption-side: inline-end; };',
-    },
-    {
-      code: 'table { caption-side: top; };',
-      description: 'Using a physical caption-side value',
-      message: messages.unexpectedValue('caption-side', 'top', 'block-start'),
-      fixed: 'table { caption-side: block-start; };',
     },
     {
       code: 'div { clear: left; };',

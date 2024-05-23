@@ -95,7 +95,9 @@ physical property or value is found, it will be flagged.
   max-width: 90ch; /* Will flag the use of "width" */
   text-align: left; /* Will flag the use of "left" */
   opacity: 1;
-  transition: opacity 1s ease, max-width 1s ease; /* Will flag the use of 'max-width' */
+  transition:
+    opacity 1s ease,
+    max-width 1s ease; /* Will flag the use of 'max-width' */
 }
 ```
 
@@ -196,8 +198,6 @@ physical property or value is found, it will be flagged.
 | ---------------------------------------------- | ----------------------------------- |
 | `(-webkit-)box-orient: vertical`               | `(-webkit-)box-orient: block-axis`  |
 | `(-webkit-)box-orient: horizontal`             | `(-webkit-)box-orient: inline-axis` |
-| `caption-side: top`                            | `caption-side: block-start`         |
-| `caption-side: bottom`                         | `caption-side: block-end`           |
 | `caption-side: right`                          | `caption-side: inline-end`          |
 | `caption-side: left`                           | `caption-side: inline-start`        |
 | `overflow-y`                                   | `overflow-block`                    |
@@ -272,7 +272,11 @@ body {
 }
 
 .container {
-  inline-size: clamp(10vw, 100%, 50vw); /* Will flag the physical use of viewport "width" */
+  inline-size: clamp(
+    10vw,
+    100%,
+    50vw
+  ); /* Will flag the physical use of viewport "width" */
 }
 ```
 
