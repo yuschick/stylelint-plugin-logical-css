@@ -11,10 +11,8 @@ export const physicalValuesMap = Object.freeze({
     [physicalAxis.vertical]: `${logicalAxis.block}-axis`,
   },
   [physicalProperties.captionSide]: {
-    [physicalValues.bottom]: logicalValues.blockEnd,
     [physicalValues.left]: logicalValues.inlineStart,
     [physicalValues.right]: logicalValues.inlineEnd,
-    [physicalValues.top]: logicalValues.blockStart,
   },
   [physicalProperties.clear]: {
     [physicalValues.left]: logicalValues.inlineStart,
