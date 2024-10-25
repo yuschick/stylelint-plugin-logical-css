@@ -251,7 +251,7 @@ directions. Instead, this rule will enforce the logical equivalents, `vi` and
 ```json
 {
   "rules": {
-    "plugin/use-logical-properties-and-values": [
+    "plugin/use-logical-units": [
       true,
       {
         "severity": "warning",
