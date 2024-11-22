@@ -44,7 +44,6 @@ export const logicalProperties = Object.freeze({
   containIntrinsicBlockSize: 'contain-intrinsic-block-size',
   containIntrinsicInlineSize: 'contain-intrinsic-inline-size',
   inlineSize: 'inline-size',
-  inset: 'inset',
   insetBlock: 'inset-block',
   insetBlockEnd: 'inset-block-end',
   insetBlockStart: 'inset-block-start',
