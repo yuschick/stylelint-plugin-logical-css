@@ -1,6 +1,6 @@
 {
   "name": "stylelint-plugin-logical-css",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A Stylelint plugin to enforce the use of logical CSS properties, values and units.",
   "main": "src/index.js",
   "type": "module",
@@ -10,7 +10,6 @@
     "!**/**/*.test.js"
   ],
   "scripts": {
-    "prepare": "husky install",
     "jest": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest --runInBand",
     "test": "npm run jest",
     "test:watch": "npm run jest -- --watch"
@@ -36,18 +35,15 @@
     "lint",
     "linter",
     "stylelint",
-    "stylelint-plugin",
+    "stylelint plugin",
     "logical css"
   ],
   "peerDependencies": {
     "stylelint": "^14.0.0 || ^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-conventional": "^19.7.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.35.0",
-    "husky": "^9.1.7",
     "jest": "^29.4.3",
     "jest-cli": "^29.4.3",
     "jest-light-runner": "^0.6.0",
@@ -56,11 +52,5 @@
     "prettier": "^3.0.3",
     "prettier-eslint": "^16.1.2",
     "stylelint": "^16.1.0"
-  },
-  "lint-staged": {
-    "**/*.js|md|json": [
-      "eslint",
-      "prettier --write"
-    ]
   }
 }
