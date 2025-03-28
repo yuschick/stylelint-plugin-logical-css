@@ -43,6 +43,7 @@ const ruleFunction = (_, options, context) => {
       const physicalTransitionProperties =
         isTransitionProperty &&
         Object.values(physicalProperties)
+          .filter((property) => !(options?.ignore || []).includes(property))
           .flatMap((property) => {
             const exp = new RegExp(`(^|[^\\w-])${property}([^\\w-]|$)`);
             return decl.value.match(exp);
