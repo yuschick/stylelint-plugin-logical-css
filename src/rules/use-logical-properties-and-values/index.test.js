@@ -288,12 +288,24 @@ testRule({
 /* eslint-disable-next-line no-undef  */
 testRule({
   ruleName,
-  config: [true, { ignore: ['overflow-y'] }],
+  config: [true, { ignore: ['height', 'overflow-y'] }],
   plugins: ['./index.js'],
   accept: [
     {
       code: `div { overflow-y: auto; };`,
       description: 'Allow overflow-y when the option is disabled with false.',
+    },
+    {
+      code: `div { transition: height 1s ease-in-out; };`,
+      description: 'Allow height within transition when the property is ignored',
+    }
+  ],
+  reject: [
+    {
+      code: `div { transition: width 1s ease-in-out; };`,
+      description: 'Using a physical property within transition that is not ignored',
+      message: messages.unexpectedTransitionValue("width", "inline-size"),
+      fixed: `div { transition: inline-size 1s ease-in-out; };`,
     },
   ],
 });
