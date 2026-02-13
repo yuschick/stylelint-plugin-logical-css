@@ -1,0 +1,137 @@
+import { LogicalProperty } from '../../utils/logical';
+import { physicalProperties, PhysicalProperty } from '../../utils/physical';
+
+export const vendorPrefixes: string[] = ['-webkit-', '-moz-', '-o-', '-ms-'];
+
+export function isPhysicalProperty(property: string): boolean {
+  return Object.values(physicalProperties).includes(property as PhysicalProperty);
+}
+
+export const physicalToLogicalPropertyMap: Record<PhysicalProperty, LogicalProperty> = {
+  'border-bottom': 'border-block-end',
+  'border-bottom-color': 'border-block-end-color',
+  'border-bottom-left-radius': 'border-end-start-radius',
+  'border-bottom-right-radius': 'border-end-end-radius',
+  'border-bottom-style': 'border-block-end-style',
+  'border-bottom-width': 'border-block-end-width',
+  'border-left': 'border-inline-start',
+  'border-left-color': 'border-inline-start-color',
+  'border-left-style': 'border-inline-start-style',
+  'border-left-width': 'border-inline-start-width',
+  'border-right': 'border-inline-end',
+  'border-right-color': 'border-inline-end-color',
+  'border-right-style': 'border-inline-end-style',
+  'border-right-width': 'border-inline-end-width',
+  'border-top': 'border-block-start',
+  'border-top-color': 'border-block-start-color',
+  'border-top-left-radius': 'border-start-start-radius',
+  'border-top-right-radius': 'border-start-end-radius',
+  'border-top-style': 'border-block-start-style',
+  'border-top-width': 'border-block-start-width',
+  bottom: 'inset-block-end',
+  'contain-intrinsic-height': 'contain-intrinsic-block-size',
+  'contain-intrinsic-width': 'contain-intrinsic-inline-size',
+  height: 'block-size',
+  left: 'inset-inline-start',
+  'margin-bottom': 'margin-block-end',
+  'margin-left': 'margin-inline-start',
+  'margin-right': 'margin-inline-end',
+  'margin-top': 'margin-block-start',
+  'max-height': 'max-block-size',
+  'max-width': 'max-inline-size',
+  'min-height': 'min-block-size',
+  'min-width': 'min-inline-size',
+  'overflow-x': 'overflow-inline',
+  'overflow-y': 'overflow-block',
+  'overscroll-behavior-x': 'overscroll-behavior-inline',
+  'overscroll-behavior-y': 'overscroll-behavior-block',
+  'padding-bottom': 'padding-block-end',
+  'padding-left': 'padding-inline-start',
+  'padding-right': 'padding-inline-end',
+  'padding-top': 'padding-block-start',
+  right: 'inset-inline-end',
+  'scroll-margin-bottom': 'scroll-margin-block-end',
+  'scroll-margin-left': 'scroll-margin-inline-start',
+  'scroll-margin-right': 'scroll-margin-inline-end',
+  'scroll-margin-top': 'scroll-margin-block-start',
+  'scroll-padding-bottom': 'scroll-padding-block-end',
+  'scroll-padding-left': 'scroll-padding-inline-start',
+  'scroll-padding-right': 'scroll-padding-inline-end',
+  'scroll-padding-top': 'scroll-padding-block-start',
+  top: 'inset-block-start',
+  width: 'inline-size',
+};
+
+// export const physicalPropertiesMap = Object.freeze({
+//   [physicalProperties.borderBottom]: logicalProperties.borderBlockEnd,
+//   [physicalProperties.borderBottomColor]: logicalProperties.borderBlockEndColor,
+//   [physicalProperties.borderBottomLeftRadius]:
+//     logicalProperties.borderEndStartRadius,
+//   [physicalProperties.borderBottomRightRadius]:
+//     logicalProperties.borderEndEndRadius,
+//   [physicalProperties.borderBottomStyle]: logicalProperties.borderBlockEndStyle,
+//   [physicalProperties.borderBottomWidth]: logicalProperties.borderBlockEndWidth,
+//   [physicalProperties.borderLeft]: logicalProperties.borderInlineStart,
+//   [physicalProperties.borderLeftColor]:
+//     logicalProperties.borderInlineStartColor,
+//   [physicalProperties.borderLeftStyle]:
+//     logicalProperties.borderInlineStartStyle,
+//   [physicalProperties.borderLeftWidth]:
+//     logicalProperties.borderInlineStartWidth,
+//   [physicalProperties.borderRight]: logicalProperties.borderInlineEnd,
+//   [physicalProperties.borderRightColor]: logicalProperties.borderInlineEndColor,
+//   [physicalProperties.borderRightStyle]: logicalProperties.borderInlineEndStyle,
+//   [physicalProperties.borderRightWidth]: logicalProperties.borderInlineEndWidth,
+//   [physicalProperties.borderTop]: logicalProperties.borderBlockStart,
+//   [physicalProperties.borderTopColor]: logicalProperties.borderBlockStartColor,
+//   [physicalProperties.borderTopLeftRadius]:
+//     logicalProperties.borderStartStartRadius,
+//   [physicalProperties.borderTopRightRadius]:
+//     logicalProperties.borderStartEndRadius,
+//   [physicalProperties.borderTopStyle]: logicalProperties.borderBlockStartStyle,
+//   [physicalProperties.borderTopWidth]: logicalProperties.borderBlockStartWidth,
+//   [physicalProperties.bottom]: logicalProperties.insetBlockEnd,
+//   [physicalProperties.containIntrinsicHeight]:
+//     logicalProperties.containIntrinsicBlockSize,
+//   [physicalProperties.containIntrinsicWidth]:
+//     logicalProperties.containIntrinsicInlineSize,
+//   [physicalProperties.height]: logicalProperties.blockSize,
+//   [physicalProperties.left]: logicalProperties.insetInlineStart,
+//   [physicalProperties.marginBottom]: logicalProperties.marginBlockEnd,
+//   [physicalProperties.marginLeft]: logicalProperties.marginInlineStart,
+//   [physicalProperties.marginRight]: logicalProperties.marginInlineEnd,
+//   [physicalProperties.marginTop]: logicalProperties.marginBlockStart,
+//   [physicalProperties.maxHeight]: logicalProperties.maxBlockSize,
+//   [physicalProperties.maxWidth]: logicalProperties.maxInlineSize,
+//   [physicalProperties.minHeight]: logicalProperties.minBlockSize,
+//   [physicalProperties.minWidth]: logicalProperties.minInlineSize,
+//   [physicalProperties.overflowX]: logicalProperties.overflowInline,
+//   [physicalProperties.overflowY]: logicalProperties.overflowBlock,
+//   [physicalProperties.overscrollBehaviorX]:
+//     logicalProperties.overscrollBehaviorInline,
+//   [physicalProperties.overscrollBehaviorY]:
+//     logicalProperties.overscrollBehaviorBlock,
+//   [physicalProperties.paddingBottom]: logicalProperties.paddingBlockEnd,
+//   [physicalProperties.paddingLeft]: logicalProperties.paddingInlineStart,
+//   [physicalProperties.paddingRight]: logicalProperties.paddingInlineEnd,
+//   [physicalProperties.paddingTop]: logicalProperties.paddingBlockStart,
+//   [physicalProperties.scrollMarginBottom]:
+//     logicalProperties.scrollMarginBlockEnd,
+//   [physicalProperties.scrollMarginLeft]:
+//     logicalProperties.scrollMarginInlineStart,
+//   [physicalProperties.scrollMarginRight]:
+//     logicalProperties.scrollMarginInlineEnd,
+//   [physicalProperties.scrollMarginTop]:
+//     logicalProperties.scrollMarginBlockStart,
+//   [physicalProperties.scrollPaddingBottom]:
+//     logicalProperties.scrollPaddingBlockEnd,
+//   [physicalProperties.scrollPaddingLeft]:
+//     logicalProperties.scrollPaddingInlineStart,
+//   [physicalProperties.scrollPaddingRight]:
+//     logicalProperties.scrollPaddingInlineEnd,
+//   [physicalProperties.scrollPaddingTop]:
+//     logicalProperties.scrollPaddingBlockStart,
+//   [physicalProperties.right]: logicalProperties.insetInlineEnd,
+//   [physicalProperties.top]: logicalProperties.insetBlockStart,
+//   [physicalProperties.width]: logicalProperties.inlineSize,
+// });

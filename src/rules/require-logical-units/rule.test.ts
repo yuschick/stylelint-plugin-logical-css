@@ -4,7 +4,7 @@ import { messages, name } from './meta';
 import { physicalToLogicalUnitMap } from './utils';
 
 testRule({
-  config: [true],
+  config: [true, { fix: true }],
   ruleName: name,
   /* eslint-disable sort-keys */
   accept: [

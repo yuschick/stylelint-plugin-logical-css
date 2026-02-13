@@ -29,19 +29,20 @@ export const requireLogicalUnits: Rule = (
         possible: [true, false],
       },
       {
-        actual: secondaryOptions.fix,
+        actual: secondaryOptions,
         optional: true,
-        possible: fixOption,
-      },
-      {
-        actual: secondaryOptions.severity,
-        optional: true,
-        possible: severityOption,
-      },
-      {
-        actual: secondaryOptions.ignore,
-        optional: true,
-        possible: Object.values(physicalUnits),
+        possible: {
+          ...severityOption,
+          ...fixOption,
+          ignore: [
+            (value: unknown) => {
+              return (
+                typeof value === 'string' &&
+                Object.values(physicalUnits).includes(value as PhysicalUnit)
+              );
+            },
+          ],
+        },
       },
     );
 
