@@ -836,4 +836,13 @@ The following table shows how physical CSS units are mapped to their logical equ
 
 ## Troubleshooting
 
-==> TODO
+### Ignoring Specific Patterns
+
+As an escape hatch, use Stylelint's built-in `disable` comments to bypass specific rules:
+
+```css
+div {
+  /* stylelint-disable-next-line logical-css/require-logical-properties */
+  width: 100%;
+}
+```
