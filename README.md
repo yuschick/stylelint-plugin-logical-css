@@ -41,18 +41,233 @@ After adding the plugin to the configuration file, you now have access to the va
 
 ## Quickstart
 
-==> TODO
+After installation, add this to your `.stylelintrc.json`:
+
+```json
+{
+  "plugins": ["stylelint-plugin-logical-css"],
+  "extends": ["stylelint-plugin-logical-css/configs/recommended"]
+}
+```
 
 ## Logical CSS Configs
 
-==> TODO
+For quick setup, the plugin provides preset configurations that enable commonly used rules.
+
+### Recommended
+
+The `recommended` preset enables core logical CSS rules with sensible defaults, suitable for most projects.
+
+**Usage:**
+
+```json
+{
+  "extends": ["stylelint-plugin-logical-css/configs/recommended"]
+}
+```
+
+**Equivalent to:**
+
+```json
+{
+  "plugins": ["stylelint-plugin-logical-css"],
+  "rules": {
+    "logical-css/require-logical-keywords": [
+      true,
+      { "ignore": ["caption-side", "offset-anchor", "offset-position"], "severity": "error" },
+    ],
+    "logical-css/require-logical-properties": [true, { "severity": "error" }],
+    "logical-css/require-logical-units": [true, { "severity": "error" }],
+  },
+}
+```
 
 ## Logical CSS Rules
 
 The plugin provides multiple rules that can be toggled on and off as needed.
 
-1. [Require Logical Properties](#require-logical-properties)
-2. [Require Logical Units](#require-logical-units)
+1. [Require Logical Keywords](#require-logical-keywords)
+2. [Require Logical Properties](#require-logical-properties)
+3. [Require Logical Units](#require-logical-units)
+
+---
+
+### Require Logical Keywords
+
+> [!NOTE]
+> Read about current [browser support for logical CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
+
+Physical CSS directional keywords like `left`, `right`, `top`, `bottom`, `horizontal`, and `vertical` reference absolute directions that don't adapt to writing modes or text direction. Logical keywords like `start`, `end`, `inline-start`, `block-end`, `inline`, and `block` automatically adjust based on the document's writing mode, supporting internationalization and adaptive layouts.
+
+**Enable this rule to:** Enforce the use of logical CSS directional keywords (`start`, `end`, `inline-start`, `block-end`, `inline`, `block`, etc.) over their physical equivalents (`left`, `right`, `top`, `bottom`, `horizontal`, `vertical`) in property values, ensuring your styles adapt properly to different writing modes and text directions.
+
+```json
+{
+  "rules": {
+    "logical-css/require-logical-keywords": true,
+  }
+}
+```
+
+#### Require Logical Keywords Options
+
+```ts
+type Severity = 'error' | 'warning';
+
+interface SecondaryOptions {
+  fix?: boolean;
+  ignore?: PhysicalKeywordProperty[],
+  severity?: Severity 
+}
+```
+
+```json
+{
+  "rules": {
+    "logical-css/require-logical-keywords": [true, { 
+      "fix": true,
+      "ignore": ["caption-side", "offset-anchor"],
+      "severity": "error",
+    }]
+  }
+}
+```
+
+#### Require Logical Keywords Map
+
+The following table shows how physical CSS directional keywords are mapped to their logical equivalents. When this rule detects a physical keyword, it will suggest (or automatically fix, if enabled) the corresponding logical keyword.
+
+<details>
+<summary>🚀 View Physical to Logical Keyword Mappings</summary>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Physical Keyword(s)</th>
+      <th>Logical Keyword(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>box-orient</code></td>
+      <td><code>horizontal</code>, <code>vertical</code></td>
+      <td><code>inline-axis</code>, <code>block-axis</code></td>
+    </tr>
+    <tr>
+      <td><code>caption-side</code></td>
+      <td><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></td>
+      <td><code>block-start</code>, <code>block-end</code>, <code>inline-start</code>, <code>inline-end</code></td>
+    </tr>
+    <tr>
+      <td><code>clear</code></td>
+      <td><code>left</code>, <code>right</code></td>
+      <td><code>inline-start</code>, <code>inline-end</code></td>
+    </tr>
+    <tr>
+      <td><code>float</code></td>
+      <td><code>left</code>, <code>right</code></td>
+      <td><code>inline-start</code>, <code>inline-end</code></td>
+    </tr>
+    <tr>
+      <td><code>offset-anchor</code></td>
+      <td><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></td>
+      <td><code>block-start</code>, <code>block-end</code>, <code>inline-start</code>, <code>inline-end</code></td>
+    </tr>
+    <tr>
+      <td><code>offset-position</code></td>
+      <td><code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></td>
+      <td><code>block-start</code>, <code>block-end</code>, <code>inline-start</code>, <code>inline-end</code></td>
+    </tr>
+    <tr>
+      <td><code>resize</code></td>
+      <td><code>horizontal</code>, <code>vertical</code></td>
+      <td><code>inline</code>, <code>block</code></td>
+    </tr>
+    <tr>
+      <td><code>text-align</code></td>
+      <td><code>left</code>, <code>right</code></td>
+      <td><code>start</code>, <code>end</code></td>
+    </tr>
+    <tr>
+      <td><code>text-align-last</code></td>
+      <td><code>left</code>, <code>right</code></td>
+      <td><code>start</code>, <code>end</code></td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+
+#### Require Logical Keywords Examples
+
+<details>
+<summary>✅ Passing Examples</summary>
+
+```css
+.text {
+  text-align: start;
+  text-align-last: end;
+}
+
+.layout {
+  float: inline-start;
+  clear: inline-end;
+}
+
+.box {
+  resize: inline;
+}
+
+.table {
+  caption-side: block-start;
+}
+
+.legacy {
+  box-orient: inline-axis;
+}
+
+.positioned {
+  offset-anchor: block-end inline-start;
+  offset-position: block-start inline-end;
+}
+```
+
+</details>
+
+<details>
+<summary>❌ Failing Examples</summary>
+
+```css
+.text {
+  text-align: left;
+  text-align-last: right;
+}
+
+.layout {
+  float: left;
+  clear: right;
+}
+
+.box {
+  resize: horizontal;
+}
+
+.table {
+  caption-side: top;
+}
+
+.legacy {
+  box-orient: vertical;
+}
+
+.positioned {
+  offset-anchor: bottom left;
+  offset-position: top right;
+}
+```
+
+</details>
 
 ---
 

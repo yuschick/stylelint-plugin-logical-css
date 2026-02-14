@@ -12,14 +12,7 @@ export type LogicalUnit =
   | 'vb'
   | 'vi';
 
-export type LogicalValueCamelCase =
-  | 'block'
-  | 'blockEnd'
-  | 'blockStart'
-  | 'inline'
-  | 'inlineEnd'
-  | 'inlineStart';
-export type LogicalValueKebabCase =
+export type LogicalValue =
   | 'block'
   | 'block-end'
   | 'block-start'
@@ -202,11 +195,11 @@ export const logicalUnits: Record<LogicalUnit, LogicalUnit> = {
   vi: 'vi',
 };
 
-export const logicalValues: Record<LogicalValueCamelCase, LogicalValueKebabCase> = {
+export const logicalValues: Record<LogicalValue, LogicalValue> = {
   block: 'block',
-  blockEnd: 'block-end',
-  blockStart: 'block-start',
+  'block-end': 'block-end',
+  'block-start': 'block-start',
   inline: 'inline',
-  inlineEnd: 'inline-end',
-  inlineStart: 'inline-start',
+  'inline-end': 'inline-end',
+  'inline-start': 'inline-start',
 };
