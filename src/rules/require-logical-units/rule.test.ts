@@ -1,15 +1,12 @@
-import rule from './index.js';
-import { logicalUnits } from '../../utils/logical.js';
-import { physicalUnitsMap } from '../../utils/physicalUnitsMap.js';
+import { logicalUnits } from '../../utils/logical';
+import { PhysicalUnit } from '../../utils/physical';
+import { messages, name } from './meta';
+import { physicalToLogicalUnitMap } from './utils';
 
-const { messages, ruleName } = rule.rule;
-
-/* eslint-disable-next-line no-undef  */
 testRule({
-  ruleName,
-  config: [true],
-  plugins: ['./index.js'],
-  fix: true,
+  config: [true, { fix: true }],
+  ruleName: name,
+  /* eslint-disable sort-keys */
   accept: [
     ...Object.values(logicalUnits).map((unit) => ({
       code: `h1 { block-size: 100${unit}; };`,
@@ -26,58 +23,69 @@ testRule({
   ],
 
   reject: [
-    ...Object.keys(physicalUnitsMap).map((unit) => ({
+    ...Object.keys(physicalToLogicalUnitMap).map((unit) => ({
       code: `body { block-size: 100${unit}; };`,
       description: `Using the physical ${unit} unit`,
-      message: messages.unexpectedUnit(unit, physicalUnitsMap[unit]),
-      fixed: `body { block-size: 100${physicalUnitsMap[unit]}; };`,
+      message: messages.error(unit, physicalToLogicalUnitMap[unit as PhysicalUnit]),
+      fixed: `body { block-size: 100${physicalToLogicalUnitMap[unit as PhysicalUnit]}; };`,
     })),
     {
       code: 'div { inline-size: min(80vw, 100%) };',
       description: 'Testing physical unit inside a function',
-      message: messages.unexpectedUnit('vw', physicalUnitsMap.vw),
+      message: messages.error('vw', physicalToLogicalUnitMap.vw),
       fixed: `div { inline-size: min(80vi, 100%) };`,
     },
     {
       code: 'div { inline-size: 80vh; };',
       description: 'Testing physical unit inside a clamp function',
-      message: messages.unexpectedUnit('vh', physicalUnitsMap.vh),
+      message: messages.error('vh', physicalToLogicalUnitMap.vh),
       fixed: `div { inline-size: 80vb; };`,
     },
     {
       code: 'div { inline-size: clamp(80vh, 50%, 90vw); };',
       description: 'Testing physical unit inside a clamp function',
-      message: messages.unexpectedUnit(
-        'vh,vw',
-        `${physicalUnitsMap.vh},${physicalUnitsMap.vw}`,
-      ),
+      warnings: [
+        {
+          message: messages.error('vh', `${physicalToLogicalUnitMap.vh}`),
+        },
+        {
+          message: messages.error('vw', `${physicalToLogicalUnitMap.vw}`),
+        },
+      ],
       fixed: `div { inline-size: clamp(80vb, 50%, 90vi); };`,
     },
     {
       code: 'div { inline-size: 50.5vw; };',
       description: 'Testing float physical unit',
-      message: messages.unexpectedUnit('vw', physicalUnitsMap.vw),
+      message: messages.error('vw', physicalToLogicalUnitMap.vw),
       fixed: `div { inline-size: 50.5vi; };`,
     },
   ],
+  /* eslint-enable sort-keys */
 });
 
-/* eslint-disable-next-line no-undef  */
 testRule({
-  ruleName,
   config: [true, { ignore: ['dvh'] }],
-  plugins: ['./index.js'],
+  ruleName: name,
+  /* eslint-disable sort-keys */
   accept: [
     {
-      code: 'div { top: 1dvh; };',
+      code: 'div { top: 100dvh; };',
       description: 'Allow dvh unit when the option is disabled.',
     },
   ],
   reject: [
     {
-      code: 'div { top: 1dvw; };',
+      code: 'div { top: 100dvw; };',
       description: 'Using a physical unit that is not disabled in the options.',
-      message: messages.unexpectedUnit('dvw', 'dvi'),
+      message: messages.error('dvw', physicalToLogicalUnitMap.dvw),
+    },
+    {
+      code: 'div { inset: 100dvh 50vw 0 0; };',
+      description:
+        'Using multiple physical units in a shorthand property where one is ignored, but not the other',
+      message: messages.error('vw', physicalToLogicalUnitMap.vw),
     },
   ],
+  /* eslint-enable sort-keys */
 });
