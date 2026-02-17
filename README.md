@@ -12,7 +12,7 @@ A Stylelint plugin to enforce the use of [logical CSS properties, values and uni
 
 ## Table of Contents
 
-[Getting Started](#getting-started) | [Quickstart](#quickstart) | [Plugin Configs](#logical-css-configs) |  [Plugin Rules](#logical-css-rules) | [Troubleshooting](#troubleshooting)
+[Getting Started](#getting-started) | [Quickstart](#quickstart) | [Plugin Configs](#logical-css-configs) | [Plugin Rules](#logical-css-rules) | [Troubleshooting](#troubleshooting) | [Upgrading from 1.x → 2.x](#upgrading-from-1x--2x)
 
 ## Getting Started
 
@@ -846,3 +846,17 @@ div {
   width: 100%;
 }
 ```
+
+---
+
+## Upgrading from 1.x → 2.x
+
+To upgrade from 1.x [(documentation)](./V1-DOCUMENTATION.md) → 2.x, change your Stylelint configuration:
+
+- Include the recommended config in the `extends` array
+- To use the defaults, drop the `plugin/use-logical-*` entries from `rules`
+
+If you had specific config that you want to keep, note that the rules have been split and renamed:
+
+- `plugin/use-logical-properties-and-values` → `logical-css/require-logical-keywords` and `logical-css/require-logical-properties`
+- `plugin/use-logical-units` → `logical-css/require-logical-units`
