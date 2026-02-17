@@ -117,14 +117,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalKeywordProperty[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-keywords": [true, { 
+    "logical-css/require-logical-keywords": [true, {
       "fix": true,
       "ignore": ["caption-side", "offset-anchor"],
       "severity": "error",
@@ -298,14 +298,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalProperty[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-properties": [true, { 
+    "logical-css/require-logical-properties": [true, {
       "fix": true,
       "ignore": ["height", "scroll-margin-bottom", "width"],
       "severity": "error",
@@ -687,14 +687,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalUnit[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-units": [true, { 
+    "logical-css/require-logical-units": [true, {
       "fix": true,
       "ignore": ["vh", "dvw"],
       "severity": "error",
