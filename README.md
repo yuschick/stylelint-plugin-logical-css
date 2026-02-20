@@ -12,7 +12,7 @@ A Stylelint plugin to enforce the use of [logical CSS properties, values and uni
 
 ## Table of Contents
 
-[Getting Started](#getting-started) | [Quickstart](#quickstart) | [Plugin Configs](#logical-css-configs) |  [Plugin Rules](#logical-css-rules) | [Troubleshooting](#troubleshooting)
+[Getting Started](#getting-started) | [Quickstart](#quickstart) | [Plugin Configs](#logical-css-configs) | [Plugin Rules](#logical-css-rules) | [Troubleshooting](#troubleshooting) | [Upgrading from 1.x → 2.x](#upgrading-from-1x--2x)
 
 ## Getting Started
 
@@ -117,14 +117,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalKeywordProperty[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-keywords": [true, { 
+    "logical-css/require-logical-keywords": [true, {
       "fix": true,
       "ignore": ["caption-side", "offset-anchor"],
       "severity": "error",
@@ -298,14 +298,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalProperty[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-properties": [true, { 
+    "logical-css/require-logical-properties": [true, {
       "fix": true,
       "ignore": ["height", "scroll-margin-bottom", "width"],
       "severity": "error",
@@ -687,14 +687,14 @@ type Severity = 'error' | 'warning';
 interface SecondaryOptions {
   fix?: boolean;
   ignore?: PhysicalUnit[],
-  severity?: Severity 
+  severity?: Severity
 }
 ```
 
 ```json
 {
   "rules": {
-    "logical-css/require-logical-units": [true, { 
+    "logical-css/require-logical-units": [true, {
       "fix": true,
       "ignore": ["vh", "dvw"],
       "severity": "error",
@@ -846,3 +846,17 @@ div {
   width: 100%;
 }
 ```
+
+---
+
+## Upgrading from 1.x → 2.x
+
+To upgrade from 1.x [(documentation)](./V1-DOCUMENTATION.md) → 2.x, change your Stylelint configuration:
+
+- Include the recommended config in the `extends` array
+- To use the defaults, drop the `plugin/use-logical-*` entries from `rules`
+
+If you had specific config that you want to keep, note that the rules have been split and renamed:
+
+- `plugin/use-logical-properties-and-values` → `logical-css/require-logical-keywords` and `logical-css/require-logical-properties`
+- `plugin/use-logical-units` → `logical-css/require-logical-units`
