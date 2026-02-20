@@ -851,12 +851,31 @@ div {
 
 ## Upgrading from 1.x → 2.x
 
-To upgrade from 1.x [(documentation)](./V1-DOCUMENTATION.md) → 2.x, change your Stylelint configuration:
+To upgrade from **1.x** ([v1 documentation](./V1-DOCUMENTATION.md)) to **2.x**, update your Stylelint configuration as follows:
 
-- Include the recommended config in the `extends` array
-- To use the defaults, drop the `plugin/use-logical-*` entries from `rules`
+### 1. Remove legacy rules
 
-If you had specific config that you want to keep, note that the rules have been split and renamed:
+The rules have changed from v1.x to v2.x. Remove any legacy rules (`plugin/use-logical-*`) from your Stylelint configuration.
 
-- `plugin/use-logical-properties-and-values` → `logical-css/require-logical-keywords` and `logical-css/require-logical-properties`
-- `plugin/use-logical-units` → `logical-css/require-logical-units`
+### 2a. Use the recommended configuration
+
+Add the recommended preset to your `extends` array:
+
+```json
+{
+  "extends": ["stylelint-config-logical-css/recommended"]
+}
+````
+
+… or … 
+
+### 2b. Migrate custom rule configurations
+
+In v2, several rules were renamed and separated for improved granularity. If you previously configured these rules manually, update them as follows:
+
+| v1 Rule | v2 Replacement |
+| -- | -- | 
+| `plugin/use-logical-properties-and-values` | `logical-css/require-logical-keywords` <br /> `logical-css/require-logical-properties` | 
+| `plugin/use-logical-units` | `logical-css/require-logical-units` | 
+
+If you relied on custom rule configuration in v1, you must explicitly configure the corresponding v2 rules.
