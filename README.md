@@ -50,6 +50,11 @@ After installation, add this to your `.stylelintrc.json`:
 }
 ```
 
+## Related Plugins
+
+- [stylelint-plugin-defensive-css](https://www.npmjs.com/package/stylelint-plugin-defensive-css) - Enforce defensive CSS resilience and accessibility patterns.
+- [stylelint-plugin-rhythmguard](https://www.npmjs.com/package/stylelint-plugin-rhythmguard) - Enforce spacing-scale and token governance for design-system consistency.
+
 ## Logical CSS Configs
 
 For quick setup, the plugin provides preset configurations that enable commonly used rules.
