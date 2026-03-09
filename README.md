@@ -863,7 +863,7 @@ Add the recommended preset to your `extends` array:
 
 ```json
 {
-  "extends": ["stylelint-config-logical-css/recommended"]
+  "extends": ["stylelint-plugin-logical-css/configs/recommended"]
 }
 ````
 
