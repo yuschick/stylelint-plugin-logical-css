@@ -89,3 +89,31 @@ testRule({
   ],
   /* eslint-enable sort-keys */
 });
+
+testRule({
+  config: [
+    true,
+    {
+      message: (actual: string, expected: string) =>
+        `Expected "${actual}" to be "${expected}"`,
+    },
+  ],
+  ruleName: name,
+  /* eslint-disable sort-keys */
+  reject: [
+    {
+      code: 'div { inset: 100dvh 50vw 0 0; };',
+      description:
+        'Using multiple physical units in a shorthand property where one is ignored, but not the other',
+      warnings: [
+        {
+          message: `Expected "dvh" to be "dvb" (${name})`,
+        },
+        {
+          message: `Expected "vw" to be "vi" (${name})`,
+        },
+      ],
+    },
+  ],
+  /* eslint-enable sort-keys */
+});
