@@ -79,7 +79,8 @@ export const requireLogicalProperties: Rule = (
         fix: () => {
           decl.prop = decl.prop.replace(sanitizedProperty, logicalPropertyEquivalent);
         },
-        message: messages.error(rawProperty, logicalPropertyEquivalent),
+        message: messages.error,
+        messageArgs: [rawProperty, logicalPropertyEquivalent],
         node: decl,
         result,
         ruleName: name,

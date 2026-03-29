@@ -82,7 +82,8 @@ export const requireLogicalUnits: Rule = (
             );
             decl.value = fixedValue;
           },
-          message: messages.error(unit, logicalUnit),
+          message: messages.error,
+          messageArgs: [unit, logicalUnit],
           node: decl,
           result,
           ruleName: name,

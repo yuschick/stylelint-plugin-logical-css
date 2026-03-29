@@ -62,3 +62,33 @@ testRule({
   ],
   /* eslint-enable sort-keys */
 });
+
+testRule({
+  config: [
+    true,
+    {
+      message: (actual: string, expected: string) =>
+        `Expected "${actual}" to be "${expected}"`,
+    },
+  ],
+  ruleName: name,
+  /* eslint-disable sort-keys */
+  reject: [
+    {
+      code: `body { width: 100%; }`,
+      description: 'Using physical width property',
+      message: `Expected "width" to be "inline-size" (${name})`,
+      fixed: `body { ${physicalToLogicalPropertyMap['width' as PhysicalProperty]}: 100%; };`,
+    },
+    {
+      code: `body { width: 100%; height: 100%; }`,
+      description: 'Using physical width and height properties',
+      warnings: [
+        { message: `Expected "width" to be "inline-size" (${name})` },
+        { message: `Expected "height" to be "block-size" (${name})` },
+      ],
+      fixed: `body { ${physicalToLogicalPropertyMap['width' as PhysicalProperty]}: 100%; ${physicalToLogicalPropertyMap['height' as PhysicalProperty]}: 100%; };`,
+    },
+  ],
+  /* eslint-enable sort-keys */
+});

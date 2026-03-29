@@ -92,7 +92,8 @@ export const requireLogicalKeywords: Rule = (
               logicalKeyword,
             );
           },
-          message: messages.error(keyword, logicalKeyword),
+          message: messages.error,
+          messageArgs: [keyword, logicalKeyword],
           node: decl,
           result,
           ruleName: name,
