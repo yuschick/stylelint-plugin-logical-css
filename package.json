@@ -14,12 +14,12 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./configs/recommended": {
-      "require": "./dist/configs/recommended.cjs",
-      "import": "./dist/configs/recommended.mjs"
+      "import": "./dist/configs/recommended.mjs",
+      "require": "./dist/configs/recommended.cjs"
     },
     "./package.json": "./package.json"
   },
