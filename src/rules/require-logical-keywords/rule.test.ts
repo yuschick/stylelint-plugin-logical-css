@@ -94,3 +94,37 @@ testRule({
   ],
   /* eslint-enable sort-keys */
 });
+
+testRule({
+  config: [
+    true,
+    {
+      message: (actual: string, expected: string) =>
+        `Expected "${actual}" to be "${expected}"`,
+    },
+  ],
+  ruleName: name,
+  /* eslint-disable sort-keys */
+  reject: [
+    {
+      code: 'div { resize: inline vertical; }',
+      description: 'Using resize with physical and logical values',
+      fixed: 'div { resize: inline block; }',
+      message: `Expected "vertical" to be "block" (${name})`,
+    },
+    {
+      code: 'div { resize: horizontal vertical; }',
+      description: 'Using resize with physical values only',
+      fixed: 'div { resize: inline block; }',
+      warnings: [
+        {
+          message: `Expected "horizontal" to be "inline" (${name})`,
+        },
+        {
+          message: `Expected "vertical" to be "block" (${name})`,
+        },
+      ],
+    },
+  ],
+  /* eslint-enable sort-keys */
+});
