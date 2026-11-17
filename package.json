@@ -1,6 +1,6 @@
 {
   "name": "stylelint-plugin-logical-css",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A Stylelint plugin to enforce the use of logical CSS properties, values and units.",
   "type": "module",
   "author": "Daniel Yuschick <daniel.yuschick@gmail.com>",
@@ -52,7 +52,7 @@
     "vitest-stylelint-utils": "^2.0.0"
   },
   "peerDependencies": {
-    "stylelint": "^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0"
+    "stylelint": "^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "keywords": [
     "css",
